@@ -1,22 +1,54 @@
-# Invitación de Bautizo - Jose Mathias
+# Invitación Bautizo de Jose Mathias 👶✨
 
-Este proyecto contiene una invitación digital para el bautizo de Jose Mathias, programada para el 6 de septiembre de 2025.
+Una hermosa invitación digital para el bautizo de Jose Mathias con animaciones celestiales y un cielo danzante.
 
-## Características
+## 🌟 Características
 
-- Diseño elegante y profesional
-- Animaciones suaves con Canvas
-- Efectos visuales como partículas y brillo dorado alrededor de la foto
-- Diseño responsivo que se adapta a diferentes tamaños de pantalla
-- Elementos decorativos como cruces en las esquinas y una paloma espiritual detallada
+- ✨ **Animaciones celestiales** con nubes danzantes
+- 🖼️ **Modal de foto interactiva** - haz clic en la imagen para ampliarla
+- 📱 **Totalmente responsiva** - se adapta a cualquier pantalla
+- 🌐 **Funciona offline** - no requiere conexión a internet
+- 🎨 **Efectos visuales hermosos** con cruces celestiales brillantes
 
-## Cómo usar
+## 📅 Detalles del Evento
 
-1. Abre el archivo `invitacion_bautizo.html` en cualquier navegador web moderno
-2. La invitación se mostrará con las animaciones y efectos visuales
-3. Para compartir la invitación, puedes:
-   - Subir el archivo a un servidor web y compartir el enlace
-   - Enviar el archivo directamente a los invitados
+- **Fecha:** Sábado, 6 de septiembre de 2025
+- **Hora:** 12:00 del día
+- **Lugar:** Parroquia de San Ginés
+- **Dirección:** Plaza de las Palmas, 1
+- **Padres:** José y Victoria
+- **Padrinos:** Humberto y Ángela
+
+## 🚀 Ver la Invitación
+
+La invitación está disponible en línea en: 
+**[🔗 Ver Invitación](https://[tu-usuario].github.io/invitacion-bautizo)**
+
+*(Reemplaza `[tu-usuario]` con tu nombre de usuario de GitHub)*
+
+## 💻 Uso Local
+
+1. Descarga o clona este repositorio
+2. Abre `index.html` en tu navegador
+3. ¡Disfruta de la invitación!
+
+## 🎨 Tecnologías Utilizadas
+
+- HTML5 Canvas para las animaciones
+- CSS3 para estilos y modal responsivo
+- JavaScript vanilla para interactividad
+- Fuentes offline para compatibilidad completa
+
+## 🌐 Compatibilidad
+
+- ✅ Chrome, Firefox, Safari, Edge
+- ✅ Móviles y tablets
+- ✅ Funciona sin conexión a internet
+- ✅ Optimizado para GitHub Pages
+
+---
+
+💕 *Con amor para nuestro pequeño ángel, Jose Mathias*
 
 ## Personalización
 

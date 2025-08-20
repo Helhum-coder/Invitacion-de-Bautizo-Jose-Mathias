@@ -1,0 +1,15 @@
+{
+  "name": "invitacion-bautizo-jose-mathias",
+  "version": "1.0.0",
+  "description": "Invitación digital para el bautizo de Jose Mathias",
+  "main": "invitacion_nueva.html",
+  "scripts": {
+    "build": "mkdir -p dist && cp *.html dist/ && cp -r 'iCloud Photos from Helbs LozRoj' dist/ 2>/dev/null || true",
+    "dev": "python3 -m http.server 8000",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["invitation", "bautizo", "baptism", "static-site"],
+  "author": "Helhum-coder",
+  "license": "MIT",
+  "devDependencies": {}
+}

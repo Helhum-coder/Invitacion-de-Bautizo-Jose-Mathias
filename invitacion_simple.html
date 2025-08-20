@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Bautizo - Jose Mathias</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #87CEEB 0%, #B0C4FF 50%, #CFD9FF 100%);
+      padding: 20px;
+    }
+    
+    .container {
+      position: relative;
+      max-width: 800px;
+      width: 100%;
+    }
+    
+    canvas {
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      max-width: 100%;
+      height: auto;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="baptismCanvas" width="800" height="1200"></canvas>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('baptismCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Variables globales
+    let img = null;
+    let imageLoaded = false;
+    
+    // Cargar imagen
+    function loadImage() {
+      img = new Image();
+      img.onload = function() {
+        imageLoaded = true;
+        console.log('Imagen cargada');
+        draw(); // Redibujar cuando la imagen esté lista
+      };
+      img.onerror = function() {
+        console.log('Error cargando imagen');
+        imageLoaded = false;
+        draw(); // Dibujar sin imagen
+      };
+      img.src = 'iCloud Photos from Helbs LozRoj/89403b46-9e13-4d3e-b6f6-b17c5359e2e6.jpg';
+    }
+    
+    // Función para dibujar nube simple
+    function drawSimpleCloud(x, y, size) {
+      ctx.save();
+      ctx.globalAlpha = 0.7;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      
+      // Círculos que forman la nube
+      for (let i = 0; i < 5; i++) {
+        const angle = (i / 5) * Math.PI * 2;
+        const offsetX = Math.cos(angle) * size * 0.3;
+        const offsetY = Math.sin(angle) * size * 0.2;
+        ctx.beginPath();
+        ctx.arc(x + offsetX, y + offsetY, size * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      ctx.restore();
+    }
+    
+    // Función para dibujar cruz simple
+    function drawSimpleCross(x, y, size) {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(200, 220, 255, 0.8)';
+      ctx.lineWidth = 3;
+      
+      // Resplandor
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+      ctx.shadowBlur = 10;
+      
+      ctx.beginPath();
+      ctx.moveTo(x, y - size/2);
+      ctx.lineTo(x, y + size/2);
+      ctx.moveTo(x - size/2, y);
+      ctx.lineTo(x + size/2, y);
+      ctx.stroke();
+      
+      // Centro brillante
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.restore();
+    }
+    
+    // Función principal de dibujo
+    function draw() {
+      // Limpiar canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Fondo con degradado celestial
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, 'rgba(135, 206, 250, 0.3)');
+      gradient.addColorStop(0.6, 'rgba(176, 196, 255, 0.2)');
+      gradient.addColorStop(1, 'rgba(230, 230, 255, 0.1)');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Nubes de fondo
+      for (let i = 0; i < 6; i++) {
+        const x = (i * 150) + 75;
+        const y = 80 + (i % 3) * 60;
+        const size = 40 + (i % 3) * 20;
+        drawSimpleCloud(x, y, size);
+      }
+      
+      // Cruces en las esquinas
+      const margin = 60;
+      const crossSize = 30;
+      drawSimpleCross(margin, margin, crossSize);
+      drawSimpleCross(canvas.width - margin, margin, crossSize);
+      drawSimpleCross(margin, canvas.height - margin, crossSize);
+      drawSimpleCross(canvas.width - margin, canvas.height - margin, crossSize);
+      
+      // Título
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#2c3e50';
+      ctx.font = 'bold 42px Georgia';
+      ctx.fillText('Bautizo', canvas.width/2, 120);
+      
+      // Nombre
+      ctx.font = 'italic bold 52px Georgia';
+      ctx.fillStyle = '#34495e';
+      ctx.fillText('Jose Mathias', canvas.width/2, 180);
+      
+      // Imagen del bebé
+      if (imageLoaded && img) {
+        const targetW = 400;
+        const scale = targetW / img.width;
+        const imgW = targetW;
+        const imgH = img.height * scale;
+        const imgX = (canvas.width - imgW) / 2;
+        const imgY = 220;
+        
+        // Sombra para la imagen
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+        ctx.shadowBlur = 15;
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        
+        // Dibujar imagen
+        ctx.drawImage(img, imgX, imgY, imgW, imgH);
+        
+        // Marco dorado
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(imgX - 5, imgY - 5, imgW + 10, imgH + 10);
+        
+        // Información del evento (después de la imagen)
+        const infoY = imgY + imgH + 80;
+        
+        ctx.font = '22px Georgia';
+        ctx.fillStyle = '#2c3e50';
+        ctx.fillText('Viernes, 6 de septiembre de 2025', canvas.width/2, infoY);
+        ctx.fillText('12:00 del día', canvas.width/2, infoY + 35);
+        
+        ctx.font = '20px Georgia';
+        ctx.fillText('Parroquia de San Ginés', canvas.width/2, infoY + 80);
+        ctx.fillText('Plaza de las Palmas, 1', canvas.width/2, infoY + 110);
+        
+        ctx.font = '18px Georgia';
+        ctx.fillStyle = '#34495e';
+        ctx.fillText('Padres: José y Victoria', canvas.width/2, infoY + 150);
+        ctx.fillText('Padrinos: Humberto y Ángela', canvas.width/2, infoY + 180);
+        
+        ctx.font = 'italic 16px Georgia';
+        ctx.fillStyle = '#555';
+        const messageY = infoY + 220;
+        ctx.fillText('Celebra con nosotros este momento lleno de fe, amor y esperanza,', canvas.width/2, messageY);
+        ctx.fillText('en el que una nueva luz se enciende en nuestro camino.', canvas.width/2, messageY + 25);
+        
+      } else {
+        // Si no hay imagen, mostrar placeholder y información más arriba
+        ctx.fillStyle = '#e0e0e0';
+        ctx.strokeStyle = '#ccc';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(200, 220, 400, 300);
+        ctx.fillRect(200, 220, 400, 300);
+        
+        ctx.fillStyle = '#666';
+        ctx.font = '18px Georgia';
+        ctx.fillText('Imagen del bebé', canvas.width/2, 370);
+        
+        // Información del evento
+        const infoY = 620;
+        
+        ctx.font = '22px Georgia';
+        ctx.fillStyle = '#2c3e50';
+        ctx.fillText('Viernes, 6 de septiembre de 2025', canvas.width/2, infoY);
+        ctx.fillText('12:00 del día', canvas.width/2, infoY + 35);
+        
+        ctx.font = '20px Georgia';
+        ctx.fillText('Parroquia de San Ginés', canvas.width/2, infoY + 80);
+        ctx.fillText('Plaza de las Palmas, 1', canvas.width/2, infoY + 110);
+        
+        ctx.font = '18px Georgia';
+        ctx.fillStyle = '#34495e';
+        ctx.fillText('Padres: José y Victoria', canvas.width/2, infoY + 150);
+        ctx.fillText('Padrinos: Humberto y Ángela', canvas.width/2, infoY + 180);
+        
+        ctx.font = 'italic 16px Georgia';
+        ctx.fillStyle = '#555';
+        const messageY = infoY + 220;
+        ctx.fillText('Celebra con nosotros este momento lleno de fe, amor y esperanza,', canvas.width/2, messageY);
+        ctx.fillText('en el que una nueva luz se enciende en nuestro camino.', canvas.width/2, messageY + 25);
+      }
+    }
+    
+    // Función de animación simple
+    let animationTime = 0;
+    function animate() {
+      animationTime += 16; // ~60fps
+      
+      // Redibujar ocasionalmente para efectos sutiles
+      if (animationTime % 1000 === 0) {
+        draw();
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    
+    // Inicializar
+    function init() {
+      console.log('Inicializando invitación...');
+      
+      // Configurar canvas
+      const container = document.querySelector('.container');
+      const containerWidth = container.clientWidth;
+      
+      if (containerWidth < 800) {
+        const aspectRatio = canvas.height / canvas.width;
+        canvas.style.width = containerWidth + 'px';
+        canvas.style.height = (containerWidth * aspectRatio) + 'px';
+      }
+      
+      // Dibujar inmediatamente
+      draw();
+      
+      // Cargar imagen
+      loadImage();
+      
+      // Iniciar animación
+      animate();
+    }
+    
+    // Iniciar cuando todo esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+    
+    // Fallback
+    setTimeout(init, 100);
+    
+  </script>
+</body>
+</html>

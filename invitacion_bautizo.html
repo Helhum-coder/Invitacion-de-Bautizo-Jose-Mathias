@@ -1,0 +1,2731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Bautizo de Jose Mathias</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      padding: 20px;
+      background: radial-gradient(ellipse at center, #5d9cec 0%, #1e50a2 100%);
+      perspective: 1500px;
+      overflow-x: hidden;
+      background-attachment: fixed;
+      position: relative;
+    }
+    
+    /* Heavenly sky background with dancing clouds */
+    body:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.8), transparent 40%),
+        radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.7), transparent 30%),
+        radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.6), transparent 35%),
+        radial-gradient(circle at 75% 10%, rgba(255, 255, 255, 0.5), transparent 25%),
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.5), transparent 25%);
+      filter: blur(15px);
+      animation: cloudMovement 80s linear infinite;
+      z-index: -1;
+    }
+    
+    @keyframes cloudMovement {
+      0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+      25% { background-position: 5% 10%, -5% 5%, 3% -5%, -3% 5%, 5% -10%; }
+      50% { background-position: 10% 5%, -10% 10%, 7% -10%, -7% 10%, 10% -5%; }
+      75% { background-position: 5% 15%, -5% 15%, 3% -15%, -3% 15%, 5% -15%; }
+      100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+    }
+    
+    /* Additional dancing clouds layer */
+    body:after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 65% 50%, rgba(255, 255, 255, 0.7), transparent 30%),
+        radial-gradient(circle at 20% 60%, rgba(255, 255, 255, 0.6), transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.5), transparent 25%),
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.6), transparent 20%);
+      filter: blur(20px);
+      animation: cloudMovement2 100s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+    
+    @keyframes cloudMovement2 {
+      0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; opacity: 0.7; }
+      33% { background-position: 10% 5%, -8% 10%, 6% -12%, -7% 8%; opacity: 0.9; }
+      66% { background-position: -10% 15%, 12% -5%, -8% 8%, 9% -12%; opacity: 0.8; }
+      100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; opacity: 0.7; }
+    }
+    
+    /* Divine rays of light */
+    .divine-rays {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.05) 75%,
+        rgba(255, 255, 255, 0) 100%);
+      background-size: 200% 200%;
+      animation: lightRays 20s linear infinite;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    @keyframes lightRays {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 200%; }
+    }
+    
+    .container {
+      position: relative;
+      max-width: 100%;
+      height: auto;
+      background: rgba(255, 255, 255, 0.15); /* Lighter, more heavenly background */
+      padding: 15px;
+      border-radius: 15px;
+      transform-style: preserve-3d;
+      animation: floatCard 10s ease-in-out infinite;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.2),
+        0 0 30px rgba(100, 150, 255, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2),
+        inset 0 0 15px rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Enhanced floating animation with 3D rotation */
+    @keyframes floatCard {
+      0% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); }
+      25% { transform: translateY(-12px) rotateY(2deg) rotateX(1deg); }
+      50% { transform: translateY(-5px) rotateY(-1deg) rotateX(-1deg); }
+      75% { transform: translateY(-8px) rotateY(-2deg) rotateX(0.5deg); }
+      100% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); }
+    }
+    
+    canvas {
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(128, 0, 255, 0.2),
+        0 0 10px rgba(255, 215, 0, 0.2),
+        inset 0 0 8px rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+      transform-style: preserve-3d;
+      background: rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: block;
+    }
+    
+    canvas:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(128, 0, 255, 0.3),
+        0 0 15px rgba(255, 215, 0, 0.3);
+    }
+    
+    .container:hover canvas {
+      transform: rotateY(3deg) rotateX(1deg);
+    }
+    
+    /* Mensaje de fallback si el canvas no funciona */
+    .fallback {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+    
+    /* Responsive styles */
+    @media screen and (max-width: 840px) {
+      .container {
+        width: 95%;
+      }
+    }
+
+    /* Modal styles para la foto */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: modalFadeIn 0.3s ease-out;
+    }
+
+    .modal.show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      border: 5px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-close:hover {
+      background: #ff6b6b;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .modal-caption {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      white-space: nowrap;
+    }
+
+    /* Indicador de que la foto es clickeable */
+    .photo-clickable {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .photo-clickable:hover {
+      transform: scale(1.02);
+      filter: brightness(1.1);
+    }
+
+    .photo-hint {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-family: 'Georgia', serif;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .photo-clickable:hover .photo-hint {
+      opacity: 1;
+    }
+
+    /* Responsive modal */
+    @media screen and (max-width: 768px) {
+      .modal-content {
+        max-width: 95%;
+        max-height: 80%;
+      }
+      
+      .modal-caption {
+        font-size: 16px;
+        padding: 12px 20px;
+        bottom: -50px;
+      }
+      
+      .modal-close {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="baptismCanvas" width="800" height="1200"></canvas>
+    
+    <!-- Modal para mostrar la foto en grande -->
+    <div id="photoModal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closePhotoModal()">&times;</button>
+        <img id="modalImage" class="modal-image" src="iCloud Photos from Helbs LozRoj/89403b46-9e13-4d3e-b6f6-b17c5359e2e6.jpg" alt="Jose Mathias">
+        <div class="modal-caption">Jose Mathias - Nuestro pequeño ángel</div>
+      </div>
+    </div>
+    
+    <noscript>Tu navegador no soporta JavaScript. Por favor, habilita JavaScript para ver esta invitación.</noscript>
+    <div id="fallbackMessage" style="display: none; text-align: center; padding: 20px; color: #333;">
+      <h1>Invitación Bautizo de Jose Mathias</h1>
+      <p style="font-style: italic;">Con inmensa alegría, queremos compartir contigo un momento muy especial en nuestras vidas.</p>
+      <p><strong>El Bautizo de nuestro hijo, Jose Mathias.</strong></p>
+      <img src="iCloud Photos from Helbs LozRoj/89403b46-9e13-4d3e-b6f6-b17c5359e2e6.jpg" alt="Jose Mathias" style="max-width: 100%; height: auto; margin: 20px 0; border: 8px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+      <p>Fecha: Viernes, 6 de septiembre de 2025<br>
+      Hora: 12:00 del día<br>
+      Lugar: Parroquia de San Ginés<br>
+      Dirección: Plaza de las Palmas, 1</p>
+      <p>Padres: José y Victoria | Padrinos: Humberto y Ángela</p>
+      <p style="font-style: italic;">Celebra con nosotros este momento lleno de fe, amor y esperanza, en el que una nueva luz se enciende en nuestro camino.</p>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('baptismCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Mantener aspect ratio en dispositivos móviles
+    function resizeCanvas() {
+      const container = document.querySelector('.container');
+      const containerWidth = container.clientWidth;
+      
+      if (containerWidth < 800) {
+        const aspectRatio = canvas.height / canvas.width;
+        canvas.style.width = containerWidth + 'px';
+        canvas.style.height = (containerWidth * aspectRatio) + 'px';
+      } else {
+        canvas.style.width = '';
+        canvas.style.height = '';
+      }
+    }
+    
+    // Ejecutar al cargar y al cambiar tamaño de ventana
+    window.addEventListener('load', resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
+
+    // Parámetros de la foto
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    // Usar la imagen proporcionada directamente
+    img.src = 'iCloud Photos from Helbs LozRoj/89403b46-9e13-4d3e-b6f6-b17c5359e2e6.jpg';
+    
+    // Manejar errores de carga de imagen
+    img.onerror = function() {
+      console.error('Error cargando la imagen principal');
+      // Intentar cargar desde el elemento img en el HTML
+      const imgElement = document.getElementById('babyImage');
+      if (imgElement && imgElement.complete && imgElement.naturalWidth > 0) {
+        console.log('Usando imagen del elemento HTML');
+        img.src = imgElement.src;
+      } else {
+        console.log('Usando imagen placeholder');
+        createPlaceholderImage();
+      }
+    };
+    
+    // Función para crear una imagen placeholder en caso de que la imagen principal falle
+    function createPlaceholderImage() {
+      const placeholderCanvas = document.createElement('canvas');
+      placeholderCanvas.width = 400;
+      placeholderCanvas.height = 400;
+      const pCtx = placeholderCanvas.getContext('2d');
+      
+      // Fondo azul claro
+      pCtx.fillStyle = '#e6f0ff';
+      pCtx.fillRect(0, 0, 400, 400);
+      
+      // Círculo para la cara
+      pCtx.fillStyle = '#ffe0cc';
+      pCtx.beginPath();
+      pCtx.arc(200, 180, 100, 0, Math.PI * 2);
+      pCtx.fill();
+      
+      // Ojos
+      pCtx.fillStyle = '#4c4cff';
+      pCtx.beginPath();
+      pCtx.arc(170, 160, 12, 0, Math.PI * 2);
+      pCtx.arc(230, 160, 12, 0, Math.PI * 2);
+      pCtx.fill();
+      
+      // Sonrisa
+      pCtx.strokeStyle = '#ff9999';
+      pCtx.lineWidth = 5;
+      pCtx.beginPath();
+      pCtx.arc(200, 200, 40, 0.2, Math.PI - 0.2);
+      pCtx.stroke();
+      
+      // Gorro de bautizo
+      pCtx.fillStyle = '#ffffff';
+      pCtx.beginPath();
+      pCtx.ellipse(200, 100, 90, 50, 0, 0, Math.PI * 2);
+      pCtx.fill();
+      
+      // Borde del gorro
+      pCtx.strokeStyle = '#dddddd';
+      pCtx.lineWidth = 3;
+      pCtx.beginPath();
+      pCtx.ellipse(200, 100, 90, 50, 0, 0, Math.PI * 2);
+      pCtx.stroke();
+      
+      // Cruz en el gorro
+      pCtx.strokeStyle = '#aaaaff';
+      pCtx.lineWidth = 4;
+      pCtx.beginPath();
+      pCtx.moveTo(200, 80);
+      pCtx.lineTo(200, 120);
+      pCtx.moveTo(180, 100);
+      pCtx.lineTo(220, 100);
+      pCtx.stroke();
+      
+      return placeholderCanvas.toDataURL();
+    }
+    
+    // Fuente personalizada (opcional)
+    const fontLoaded = new Promise(resolve => {
+      if ('FontFace' in window) {
+        const elegantFont = new FontFace('Cormorant Garamond', 'url(https://fonts.gstatic.com/s/cormorantgaramond/v16/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrEPjuw-N.woff2)');
+        elegantFont.load().then(font => {
+          document.fonts.add(font);
+          resolve();
+        }).catch(() => resolve()); // Si falla, continuamos con fuentes alternativas
+      } else {
+        resolve();
+      }
+    });
+
+    // Variables de posición y tamaño
+    let imgX, imgY, imgW, imgH;
+
+    // Dibuja fondo y efectos (dinámico con tiempo)
+    function drawBackground(time = 0) {
+      // Fondo base con degradado celestial de cielo azul
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      
+      // Degradado principal con tonos de cielo azul heavenly
+      const hueShift = Math.sin(time * 0.0002) * 5; // Variación sutil del tono
+      const grad = ctx.createRadialGradient(
+        centerX + Math.sin(time * 0.0001) * 20, 
+        centerY + Math.cos(time * 0.0001) * 10, 
+        50,
+        centerX, 
+        centerY, 
+        600
+      );
+      grad.addColorStop(0, `rgba(255, 255, 255, 1)`); // Centro brillante blanco
+      grad.addColorStop(0.3, `rgba(210, 230, 255, 1)`); // Azul cielo muy claro
+      grad.addColorStop(0.7, `rgba(135, 206, 250, 1)`); // Azul cielo
+      grad.addColorStop(1, `rgba(70, 130, 230, 1)`); // Azul más profundo en los bordes
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Efecto de luz divina (rayos celestiales)
+      const rayTime = time * 0.0001;
+      const rayCount = 12;
+      ctx.save();
+      ctx.translate(centerX, centerY * 0.3); // Origen de los rayos desde arriba
+      ctx.rotate(rayTime); // Rotación lenta
+      
+      for (let i = 0; i < rayCount; i++) {
+        const angle = (i / rayCount) * Math.PI * 2;
+        const rayLength = canvas.width * (0.8 + Math.sin(time * 0.0003 + i) * 0.1);
+        
+        const rayGrad = ctx.createLinearGradient(0, 0, Math.cos(angle) * rayLength, Math.sin(angle) * rayLength);
+        rayGrad.addColorStop(0, `rgba(255, 255, 255, ${0.3 + Math.sin(time * 0.001 + i) * 0.1})`);
+        rayGrad.addColorStop(0.7, `rgba(255, 255, 220, ${0.1 + Math.sin(time * 0.001 + i) * 0.05})`);
+        rayGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.fillStyle = rayGrad;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, 5, angle - 0.04, angle + 0.04);
+        ctx.lineTo(Math.cos(angle + 0.04) * rayLength, Math.sin(angle + 0.04) * rayLength);
+        ctx.lineTo(Math.cos(angle - 0.04) * rayLength, Math.sin(angle - 0.04) * rayLength);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+      
+      // Nubes danzantes (efecto de profundidad con nubes volumétricas)
+      const cloudCount = 8;
+      for (let i = 0; i < cloudCount; i++) {
+        // Movimiento fluido de nubes
+        const cloudTime = time * 0.0001;
+        const baseAngle = (i / cloudCount) * Math.PI * 2;
+        const distance = canvas.width * (0.2 + (i % 3) * 0.1);
+        
+        // Posición con movimiento danzante
+        const cloudX = centerX + Math.cos(baseAngle + cloudTime * (0.5 + i * 0.1)) * distance * 0.5;
+        const cloudY = canvas.height * (0.2 + (i % 4) * 0.15) + Math.sin(cloudTime * (0.7 + i * 0.1)) * 20;
+        
+        // Tamaño variable para cada nube
+        const cloudSize = (50 + (i % 4) * 30) * (1 + Math.sin(time * 0.0003 + i) * 0.1);
+        
+        // Crear nubes con múltiples círculos superpuestos
+        drawCloud(cloudX, cloudY, cloudSize, time, i);
+      }
+      
+      // Destellos de luz celestial ocasionales (rayos de sol atravesando nubes)
+      if (Math.random() > 0.97) {
+        const sunX = centerX + (Math.random() - 0.5) * canvas.width * 0.5;
+        const sunY = Math.random() * canvas.height * 0.4; // Solo en la parte superior
+        const sunSize = 30 + Math.random() * 50;
+        
+        // Destello brillante de sol
+        const sunGlow = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunSize);
+        sunGlow.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+        sunGlow.addColorStop(0.3, 'rgba(255, 255, 200, 0.6)');
+        sunGlow.addColorStop(0.7, 'rgba(255, 250, 200, 0.3)');
+        sunGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.fillStyle = sunGlow;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunSize, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Rayos de luz desde el destello
+        const rayCount = 6 + Math.floor(Math.random() * 4);
+        for (let i = 0; i < rayCount; i++) {
+          const rayAngle = (i / rayCount) * Math.PI * 2;
+          const rayLength = sunSize * (2 + Math.random() * 3);
+          
+          ctx.strokeStyle = 'rgba(255, 255, 200, 0.5)';
+          ctx.lineWidth = 1 + Math.random() * 2;
+          ctx.beginPath();
+          ctx.moveTo(sunX, sunY);
+          ctx.lineTo(
+            sunX + Math.cos(rayAngle) * rayLength,
+            sunY + Math.sin(rayAngle) * rayLength
+          );
+          ctx.stroke();
+        }
+      }
+    }
+    
+    // Función para dibujar nubes realistas
+    function drawCloud(x, y, size, time, seed) {
+      ctx.save();
+      
+      // Determinar forma y densidad de la nube
+      const blobCount = 5 + (seed % 3);
+      const cloudAlpha = 0.7 + Math.sin(time * 0.001 + seed) * 0.1;
+      
+      // Crear gradiente para la nube con tonos azulados sutiles
+      const cloudGrad = ctx.createRadialGradient(x, y, 0, x, y, size);
+      cloudGrad.addColorStop(0, `rgba(255, 255, 255, ${cloudAlpha})`);
+      cloudGrad.addColorStop(0.6, `rgba(245, 250, 255, ${cloudAlpha * 0.8})`);
+      cloudGrad.addColorStop(1, `rgba(235, 245, 255, 0)`);
+      
+      ctx.fillStyle = cloudGrad;
+      
+      // Dibujar la forma base de la nube
+      ctx.beginPath();
+      ctx.arc(x, y, size * 0.5, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Añadir "bultos" adicionales para dar forma de nube
+      for (let i = 0; i < blobCount; i++) {
+        const angle = (i / blobCount) * Math.PI * 2 + seed + time * 0.0001;
+        const distance = size * 0.4;
+        const blobX = x + Math.cos(angle) * distance;
+        const blobY = y + Math.sin(angle) * distance;
+        const blobSize = size * (0.3 + Math.sin(time * 0.0005 + i + seed) * 0.1);
+        
+        ctx.beginPath();
+        ctx.arc(blobX, blobY, blobSize, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Conectar los bultos con formas adicionales para suavizar
+        const nextI = (i + 1) % blobCount;
+        const nextAngle = (nextI / blobCount) * Math.PI * 2 + seed + time * 0.0001;
+        const nextX = x + Math.cos(nextAngle) * distance;
+        const nextY = y + Math.sin(nextAngle) * distance;
+        
+        const midX = (blobX + nextX) / 2;
+        const midY = (blobY + nextY) / 2;
+        const midSize = (blobSize + size * (0.3 + Math.sin(time * 0.0005 + nextI + seed) * 0.1)) / 2;
+        
+        ctx.beginPath();
+        ctx.arc(midX, midY, midSize, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Añadir iluminación en la parte superior para efecto de volumen
+      const highlightGrad = ctx.createRadialGradient(
+        x, y - size * 0.2, 0, 
+        x, y - size * 0.2, size * 0.7
+      );
+      highlightGrad.addColorStop(0, `rgba(255, 255, 255, ${cloudAlpha * 0.7})`);
+      highlightGrad.addColorStop(0.5, `rgba(255, 255, 255, ${cloudAlpha * 0.3})`);
+      highlightGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      
+      ctx.fillStyle = highlightGrad;
+      ctx.beginPath();
+      ctx.arc(x, y - size * 0.2, size * 0.7, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.restore();
+    }
+    
+    // Continuación de drawBackground
+    function drawBackgroundBorders(time = 0) {
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+      ctx.shadowBlur = 15;
+      ctx.shadowOffsetX = 5;
+      ctx.shadowOffsetY = 5;
+      ctx.strokeStyle = 'rgba(200, 200, 230, 0.6)';
+      ctx.lineWidth = 15;
+      ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+      
+      // Resetear sombra
+      ctx.shadowColor = 'transparent';
+      
+      // Borde interior con efecto de brillo
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
+
+      // Rayos de luz con animación
+      ctx.save();
+      ctx.translate(canvas.width/2, 200);
+      for (let i = 0; i < 30; i++) {
+        ctx.rotate((Math.PI*2) / 30);
+        // Efecto de degradado en los rayos
+        const rayGrad = ctx.createLinearGradient(0, 0, 0, 700);
+        rayGrad.addColorStop(0, 'rgba(255, 255, 240, 0.15)');
+        rayGrad.addColorStop(1, 'rgba(200, 220, 255, 0)');
+        
+        ctx.fillStyle = rayGrad;
+        ctx.fillRect(-5, 0, 10, 700);
+      }
+      ctx.restore();
+    }
+
+    // Dibuja cruces celestiales en las esquinas con efecto 3D y resplandor
+    function drawCornerCrosses(time = 0) {
+      const crossSize = 34;
+      const margin = 60;
+      
+      // Función para dibujar cruz con efecto 3D y resplandor celestial
+      function drawCross(x, y, index) {
+        const pulseIntensity = 0.15; // Intensidad del pulso
+        const pulseFrequency = 0.001; // Frecuencia del pulso
+        const pulseFactor = 1 + Math.sin(time * pulseFrequency + index) * pulseIntensity;
+        
+        // Resplandor celestial detrás de la cruz
+        const glowSize = crossSize * 1.2 * pulseFactor;
+        const glow = ctx.createRadialGradient(x, y, 0, x, y, glowSize);
+        glow.addColorStop(0, `rgba(255, 255, 255, ${0.5 * pulseFactor})`);
+        glow.addColorStop(0.5, `rgba(200, 220, 255, ${0.3 * pulseFactor})`);
+        glow.addColorStop(1, 'rgba(180, 200, 255, 0)');
+        
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(x, y, glowSize, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Sombra para efecto 3D
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetX = 1.5;
+        ctx.shadowOffsetY = 1.5;
+        
+        // Cruz principal con brillo celestial
+        const gradientCross = ctx.createLinearGradient(
+          x - crossSize/2, y - crossSize/2, 
+          x + crossSize/2, y + crossSize/2
+        );
+        gradientCross.addColorStop(0, `rgba(220, 230, 255, ${0.9 * pulseFactor})`);
+        gradientCross.addColorStop(0.5, `rgba(200, 220, 250, ${0.8 * pulseFactor})`);
+        gradientCross.addColorStop(1, `rgba(180, 200, 240, ${0.7 * pulseFactor})`);
+        
+        ctx.strokeStyle = gradientCross;
+        ctx.lineWidth = 3 * pulseFactor;
+        
+        ctx.beginPath();
+        // Línea vertical
+        ctx.moveTo(x, y - crossSize/2);
+        ctx.lineTo(x, y + crossSize/2);
+        // Línea horizontal
+        ctx.moveTo(x - crossSize/2, y);
+        ctx.lineTo(x + crossSize/2, y);
+        ctx.stroke();
+        
+        // Centro brillante de la cruz
+        ctx.shadowColor = 'transparent';
+        const centerGlow = ctx.createRadialGradient(x, y, 0, x, y, 4 * pulseFactor);
+        centerGlow.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        centerGlow.addColorStop(0.5, 'rgba(240, 250, 255, 0.8)');
+        centerGlow.addColorStop(1, 'rgba(220, 240, 255, 0)');
+        
+        ctx.fillStyle = centerGlow;
+        ctx.beginPath();
+        ctx.arc(x, y, 4 * pulseFactor, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Pequeños círculos en los extremos
+        ctx.fillStyle = `rgba(240, 250, 255, ${0.9 * pulseFactor})`;
+        
+        // Extremos
+        const endpoints = [
+          {x: x, y: y - crossSize/2},
+          {x: x, y: y + crossSize/2},
+          {x: x - crossSize/2, y: y},
+          {x: x + crossSize/2, y: y}
+        ];
+        
+        endpoints.forEach(point => {
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 2 * pulseFactor, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        
+        // Rayos de luz sutiles que emanan de la cruz
+        if (Math.random() > 0.7) {
+          ctx.save();
+          ctx.translate(x, y);
+          const rayCount = 4 + Math.floor(Math.random() * 4);
+          const rayAngle = Math.random() * Math.PI * 2;
+          ctx.rotate(rayAngle);
+          
+          const rayGrad = ctx.createLinearGradient(0, 0, 0, crossSize * 2);
+          rayGrad.addColorStop(0, `rgba(255, 255, 255, ${0.4 * pulseFactor})`);
+          rayGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          
+          ctx.fillStyle = rayGrad;
+          ctx.beginPath();
+          ctx.moveTo(-2, 0);
+          ctx.lineTo(2, 0);
+          ctx.lineTo(4, crossSize * 2);
+          ctx.lineTo(-4, crossSize * 2);
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      
+      // Cruces en las 4 esquinas con efecto de luz
+      ctx.save();
+      drawCross(margin, margin, 0); // Superior izquierda
+      drawCross(canvas.width - margin, margin, 1); // Superior derecha
+      drawCross(margin, canvas.height - margin, 2); // Inferior izquierda
+      drawCross(canvas.width - margin, canvas.height - margin, 3); // Inferior derecha
+      
+      // Resetear sombra
+      ctx.shadowColor = 'transparent';
+      ctx.restore();
+    }
+
+    // Dibuja el contenido fijo (foto, dove, texto) con efectos 3D
+    function drawStaticElements() {
+      // Título principal con efecto 3D
+      ctx.textAlign = 'center';
+      
+      // Sombra para texto
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+      ctx.shadowBlur = 4;
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 2;
+      
+      // Título con gradiente
+      const titleGrad = ctx.createLinearGradient(
+        canvas.width/2 - 100, 120, 
+        canvas.width/2 + 100, 120
+      );
+      titleGrad.addColorStop(0, '#395b8c');
+      titleGrad.addColorStop(0.5, '#4c6ea0');
+      titleGrad.addColorStop(1, '#365173');
+      
+      ctx.fillStyle = titleGrad;
+      ctx.font = 'bold 44px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillText('Bautizo', canvas.width/2, 120);
+      
+      // Nombre en estilo caligráfico con efecto 3D
+      const nameGrad = ctx.createLinearGradient(
+        canvas.width/2 - 150, 180, 
+        canvas.width/2 + 150, 180
+      );
+      nameGrad.addColorStop(0, '#2c3e50');
+      nameGrad.addColorStop(0.5, '#4a6c8a');
+      nameGrad.addColorStop(1, '#2c3e50');
+      
+      ctx.font = 'italic bold 54px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillStyle = nameGrad;
+      ctx.fillText('Jose Mathias', canvas.width/2, 180);
+      
+      // Destellos digitales en el texto
+      const particlesCount = 8;
+      for (let i = 0; i < particlesCount; i++) {
+        const offsetX = (Math.random() - 0.5) * 300;
+        const offsetY = (Math.random() - 0.5) * 40;
+        const size = 1 + Math.random() * 2;
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.beginPath();
+        ctx.arc(canvas.width/2 + offsetX, 150 + offsetY, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Foto con efecto 3D
+      const targetW = 400;
+      // Aseguramos que la imagen tenga dimensiones
+      if (!img.width || !img.height) {
+        img.width = 400;
+        img.height = 400;
+      }
+      const scale = targetW / img.width;
+      imgW = targetW;
+      imgH = img.height * scale;
+      imgX = (canvas.width - imgW) / 2;
+      imgY = 230; // Ligeramente más arriba para dar más espacio al texto debajo
+      
+      // Sombra profunda para la foto (efecto 3D)
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+      ctx.shadowBlur = 25;
+      ctx.shadowOffsetX = 8;
+      ctx.shadowOffsetY = 8;
+      
+      // Fondo blanco detrás de la foto (por si tiene transparencia)
+      ctx.fillStyle = 'white';
+      ctx.fillRect(imgX, imgY, imgW, imgH);
+      
+      // Dibujar la imagen
+      ctx.drawImage(img, imgX, imgY, imgW, imgH);
+      ctx.shadowColor = 'transparent';
+      
+      // Marco con efecto metálico para la foto
+      const frameGrad = ctx.createLinearGradient(
+        imgX, imgY, 
+        imgX + imgW, imgY + imgH
+      );
+      frameGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+      frameGrad.addColorStop(0.5, 'rgba(240, 240, 240, 0.9)');
+      frameGrad.addColorStop(1, 'rgba(220, 220, 220, 0.95)');
+      
+      ctx.strokeStyle = frameGrad;
+      ctx.lineWidth = 8;
+      ctx.strokeRect(imgX - 4, imgY - 4, imgW + 8, imgH + 8);
+      
+      // Marco dorado interior con brillo
+      const innerFrameGrad = ctx.createLinearGradient(
+        imgX, imgY, 
+        imgX + imgW, imgY
+      );
+      innerFrameGrad.addColorStop(0, 'rgba(255, 215, 0, 0.7)');
+      innerFrameGrad.addColorStop(0.5, 'rgba(218, 165, 32, 0.8)');
+      innerFrameGrad.addColorStop(1, 'rgba(255, 215, 0, 0.7)');
+      
+      ctx.strokeStyle = innerFrameGrad;
+      ctx.lineWidth = 2;
+      ctx.strokeRect(imgX + 4, imgY + 4, imgW - 8, imgH - 8);
+      
+      // Indicador sutil de que la foto es clickeable
+      const hintAlpha = 0.6 + Math.sin(time * 0.003) * 0.4; // Pulso suave
+      ctx.save();
+      ctx.globalAlpha = hintAlpha;
+      
+      // Ícono de ampliar en la esquina superior derecha de la foto
+      const iconX = imgX + imgW - 30;
+      const iconY = imgY + 20;
+      const iconSize = 10;
+      
+      // Fondo circular semitransparente para el ícono
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+      ctx.beginPath();
+      ctx.arc(iconX, iconY, iconSize + 5, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Ícono de lupa/ampliar
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.lineWidth = 2;
+      
+      // Círculo de la lupa
+      ctx.beginPath();
+      ctx.arc(iconX - 3, iconY - 3, iconSize - 5, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      // Manija de la lupa
+      ctx.beginPath();
+      ctx.moveTo(iconX + 2, iconY + 2);
+      ctx.lineTo(iconX + 6, iconY + 6);
+      ctx.stroke();
+      
+      // Pequeño signo + para indicar "ampliar"
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(iconX + 8, iconY - 8);
+      ctx.lineTo(iconX + 12, iconY - 8);
+      ctx.moveTo(iconX + 10, iconY - 10);
+      ctx.lineTo(iconX + 10, iconY - 6);
+      ctx.stroke();
+      
+      ctx.restore();
+
+      // Calcular posición de inicio para textos basados en la altura de la imagen
+      // Añadir más espacio entre la imagen y el texto
+      const textStartY = imgY + imgH + 130;
+      
+      // Paloma espiritual mejorada (ligeramente más arriba)
+      drawDove(canvas.width/2, textStartY - 40, 1.2);
+      
+      // Fondo decorativo para el texto principal
+      drawTextBackground(canvas.width/2, textStartY + 40, 600, 350);
+
+      // Textos de invitación con animación y estilo Canva
+      animateText(time, canvas.width/2, textStartY + 25, 'Con inmensa alegría,', 'italic 26px "Cormorant Garamond", "Georgia", serif', 'rgba(65, 75, 110, 0.9)');
+      animateText(time, canvas.width/2, textStartY + 60, 'queremos compartir contigo', 'italic 24px "Cormorant Garamond", "Georgia", serif', 'rgba(65, 75, 110, 0.9)');
+      animateText(time, canvas.width/2, textStartY + 95, 'un momento muy especial en nuestras vidas.', 'italic 24px "Cormorant Garamond", "Georgia", serif', 'rgba(65, 75, 110, 0.9)');
+      
+      // Texto principal del bautizo con animación de aparición
+      const babyNameY = textStartY + 150;
+      const babyNameScale = 1 + Math.sin(time * 0.001) * 0.03; // Animación de pulso sutil
+      
+      ctx.save();
+      ctx.translate(canvas.width/2, babyNameY);
+      ctx.scale(babyNameScale, babyNameScale);
+      
+      const nameGlow = ctx.createLinearGradient(-150, 0, 150, 0);
+      nameGlow.addColorStop(0, 'rgba(100, 120, 180, 0.9)');
+      nameGlow.addColorStop(0.5, 'rgba(140, 160, 210, 0.95)');
+      nameGlow.addColorStop(1, 'rgba(100, 120, 180, 0.9)');
+      
+      ctx.fillStyle = nameGlow;
+      ctx.font = 'bold 32px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillText('El Bautizo de nuestro hijo,', 0, 0);
+      
+      // Animación para el nombre
+      const joseScale = 1 + Math.sin(time * 0.0015 + 1) * 0.05;
+      ctx.font = 'italic bold 42px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillStyle = 'rgba(60, 90, 140, 0.95)';
+      ctx.fillText('Jose Mathias', 0, 50);
+      
+      // Pequeños destellos alrededor del nombre
+      for (let i = 0; i < 6; i++) {
+        const angle = (time * 0.001) + (i * Math.PI * 2 / 6);
+        const destX = Math.cos(angle) * 130;
+        const destY = Math.sin(angle) * 30 + 25;
+        const destSize = 1 + Math.sin(time * 0.002 + i) * 1;
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.beginPath();
+        ctx.arc(destX, destY, destSize, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      ctx.restore();
+      
+      // Iconos y detalles del evento con interactividad
+      drawEventDetails(time, canvas.width/2, babyNameY + 120);
+      
+      // Añadir detalles de padres y padrinos en un diseño elegante
+      drawFamilyDetails(time, canvas.width/2, babyNameY + 280);
+      
+      // Mensaje final con animación de brillo
+      const msgY = babyNameY + 380;
+      const msgGlow = 0.7 + Math.sin(time * 0.0015) * 0.3;
+      
+      ctx.save();
+      ctx.shadowColor = `rgba(255, 255, 255, ${msgGlow})`;
+      ctx.shadowBlur = 10;
+      ctx.font = 'italic 22px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillStyle = 'rgba(80, 90, 120, 0.8)';
+      ctx.fillText('Celebra con nosotros este momento lleno de fe,', canvas.width/2, msgY);
+      ctx.fillText('amor y esperanza, en el que una nueva luz', canvas.width/2, msgY + 30);
+      ctx.fillText('se enciende en nuestro camino.', canvas.width/2, msgY + 60);
+      ctx.restore();
+      
+      // Firma final
+      ctx.font = 'italic 20px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillStyle = '#888';
+      ctx.fillText('Los Padres', canvas.width/2, canvas.height - 80);
+    }
+    
+    // Función para dibujar fondo decorativo del texto al estilo Canva
+    function drawTextBackground(x, y, width, height) {
+      ctx.save();
+      
+      // Fondo semitransparente con bordes redondeados
+      const bgGrad = ctx.createLinearGradient(x - width/2, y, x + width/2, y + height);
+      bgGrad.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
+      bgGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.25)');
+      bgGrad.addColorStop(1, 'rgba(255, 255, 255, 0.1)');
+      
+      ctx.fillStyle = bgGrad;
+      roundRect(ctx, x - width/2, y - height/2, width, height, 20);
+      ctx.fill();
+      
+      // Borde sutil
+      ctx.strokeStyle = 'rgba(200, 200, 230, 0.3)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, x - width/2, y - height/2, width, height, 20);
+      ctx.stroke();
+      
+      // Elementos decorativos en las esquinas
+      const cornerRadius = 30;
+      const cornerPoints = [
+        {x: x - width/2 + cornerRadius, y: y - height/2 + cornerRadius},
+        {x: x + width/2 - cornerRadius, y: y - height/2 + cornerRadius},
+        {x: x - width/2 + cornerRadius, y: y + height/2 - cornerRadius},
+        {x: x + width/2 - cornerRadius, y: y + height/2 - cornerRadius}
+      ];
+      
+      cornerPoints.forEach(point => {
+        // Elementos decorativos sutiles en las esquinas
+        ctx.strokeStyle = 'rgba(200, 210, 230, 0.3)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 10, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        ctx.fillStyle = 'rgba(220, 230, 250, 0.2)';
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      ctx.restore();
+    }
+    
+    // Función auxiliar para crear rectángulos redondeados
+    function roundRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+    
+    // Función para animar texto con estilo Canva
+    function animateText(time, x, y, text, font, color) {
+      ctx.save();
+      
+      // Sombra para efecto 3D
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.1)';
+      ctx.shadowBlur = 2;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+      
+      // Animar letras individualmente
+      ctx.textAlign = 'center';
+      ctx.font = font;
+      
+      const letters = text.split('');
+      let totalWidth = 0;
+      
+      // Medir ancho total
+      letters.forEach(letter => {
+        totalWidth += ctx.measureText(letter).width;
+      });
+      
+      // Posición inicial
+      let currentX = x - totalWidth / 2;
+      
+      // Dibujar letras con animación
+      letters.forEach((letter, i) => {
+        const letterWidth = ctx.measureText(letter).width;
+        const offsetY = Math.sin(time * 0.002 + i * 0.2) * 2; // Movimiento ondulatorio
+        
+        // Animar opacidad y color
+        const alpha = 0.7 + Math.sin(time * 0.003 + i * 0.1) * 0.3;
+        const dynamicColor = color.replace(')', `, ${alpha})`).replace('rgba', 'rgba').replace('rgb', 'rgba');
+        
+        ctx.fillStyle = dynamicColor;
+        ctx.fillText(letter, currentX + letterWidth/2, y + offsetY);
+        
+        currentX += letterWidth;
+      });
+      
+      ctx.restore();
+    }
+    
+    // Función para dibujar detalles del evento con iconos interactivos
+    function drawEventDetails(time, x, y) {
+      ctx.save();
+      ctx.textAlign = 'left';
+      
+      // Parámetros de diseño
+      const iconSize = 24;
+      const lineHeight = 40;
+      const textX = x - 180;
+      
+      // Dibujar fecha con icono
+      drawIcon(time, textX - iconSize - 10, y, 'calendar', iconSize);
+      ctx.font = 'bold 22px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#444';
+      ctx.fillText('Fecha:', textX, y);
+      ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#555';
+      ctx.fillText('Viernes, 6 de septiembre de 2025', textX + 80, y);
+      
+      // Dibujar hora con icono
+      drawIcon(time, textX - iconSize - 10, y + lineHeight, 'clock', iconSize);
+      ctx.font = 'bold 22px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#444';
+      ctx.fillText('Hora:', textX, y + lineHeight);
+      ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#555';
+      ctx.fillText('12:00 del día', textX + 80, y + lineHeight);
+      
+      // Dibujar lugar con icono
+      drawIcon(time, textX - iconSize - 10, y + lineHeight*2, 'church', iconSize);
+      ctx.font = 'bold 22px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#444';
+      ctx.fillText('Lugar:', textX, y + lineHeight*2);
+      ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#555';
+      ctx.fillText('Parroquia de San Ginés', textX + 80, y + lineHeight*2);
+      
+      // Dibujar dirección con icono
+      drawIcon(time, textX - iconSize - 10, y + lineHeight*3, 'location', iconSize);
+      ctx.font = 'bold 22px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#444';
+      ctx.fillText('Dirección:', textX, y + lineHeight*3);
+      ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#555';
+      ctx.fillText('Plaza de las Palmas, 1', textX + 80, y + lineHeight*3);
+      
+      ctx.restore();
+    }
+    
+    // Función para dibujar iconos interactivos estilo Canva
+    function drawIcon(time, x, y, type, size) {
+      ctx.save();
+      ctx.translate(x, y);
+      
+      // Animación de rotación sutil
+      const rotation = Math.sin(time * 0.001) * 0.05;
+      ctx.rotate(rotation);
+      
+      // Sombra para efecto 3D
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+      ctx.shadowBlur = 4;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+      
+      // Fondo del icono
+      const iconGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, size/2);
+      iconGrad.addColorStop(0, 'rgba(100, 140, 200, 0.8)');
+      iconGrad.addColorStop(1, 'rgba(80, 120, 180, 0.7)');
+      
+      ctx.fillStyle = iconGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, size/2, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Dibujar el icono según el tipo
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.lineWidth = 1.5;
+      
+      switch(type) {
+        case 'calendar':
+          // Dibujar calendario
+          ctx.fillRect(-size/4, -size/4, size/2, size/2);
+          // Líneas del calendario
+          ctx.beginPath();
+          ctx.moveTo(-size/4, -size/8);
+          ctx.lineTo(size/4, -size/8);
+          ctx.moveTo(-size/8, -size/4);
+          ctx.lineTo(-size/8, size/4);
+          ctx.moveTo(size/8, -size/4);
+          ctx.lineTo(size/8, size/4);
+          ctx.stroke();
+          break;
+          
+        case 'clock':
+          // Dibujar reloj
+          ctx.beginPath();
+          ctx.arc(0, 0, size/3, 0, Math.PI * 2);
+          ctx.stroke();
+          // Manecillas
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(0, -size/6);
+          ctx.moveTo(0, 0);
+          ctx.lineTo(size/8, size/8);
+          ctx.stroke();
+          break;
+          
+        case 'church':
+          // Dibujar iglesia
+          // Base
+          ctx.fillRect(-size/3, 0, size/1.5, size/3);
+          // Torre
+          ctx.fillRect(-size/8, -size/3, size/4, size/3);
+          // Cruz
+          ctx.beginPath();
+          ctx.moveTo(0, -size/3);
+          ctx.lineTo(0, -size/2);
+          ctx.moveTo(-size/12, -size/2.5);
+          ctx.lineTo(size/12, -size/2.5);
+          ctx.stroke();
+          break;
+          
+        case 'location':
+          // Dibujar marcador de ubicación
+          ctx.beginPath();
+          ctx.arc(0, -size/6, size/6, Math.PI, Math.PI * 2);
+          ctx.lineTo(size/6, size/6);
+          ctx.lineTo(0, size/3);
+          ctx.lineTo(-size/6, size/6);
+          ctx.closePath();
+          ctx.fill();
+          // Punto central
+          ctx.fillStyle = iconGrad;
+          ctx.beginPath();
+          ctx.arc(0, -size/6, size/12, 0, Math.PI * 2);
+          ctx.fill();
+          break;
+      }
+      
+      ctx.restore();
+    }
+    
+    // Función para dibujar detalles de familia estilo Canva
+    function drawFamilyDetails(time, x, y) {
+      ctx.save();
+      
+      // Rectángulos decorativos para cada familia
+      const rectWidth = 300;
+      const rectHeight = 60;
+      const rectSpacing = 30;
+      
+      // Fondo de padres
+      const parentsGrad = ctx.createLinearGradient(x - rectWidth/2, y, x + rectWidth/2, y);
+      parentsGrad.addColorStop(0, 'rgba(100, 140, 200, 0.1)');
+      parentsGrad.addColorStop(1, 'rgba(120, 160, 220, 0.2)');
+      
+      ctx.fillStyle = parentsGrad;
+      roundRect(ctx, x - rectWidth/2, y - rectHeight/2, rectWidth, rectHeight, 15);
+      ctx.fill();
+      
+      // Borde de padres
+      ctx.strokeStyle = 'rgba(100, 140, 200, 0.3)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, x - rectWidth/2, y - rectHeight/2, rectWidth, rectHeight, 15);
+      ctx.stroke();
+      
+      // Texto de padres
+      ctx.textAlign = 'center';
+      ctx.font = 'bold 22px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillStyle = 'rgba(60, 90, 140, 0.9)';
+      ctx.fillText('Padres', x, y - 10);
+      
+      ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#555';
+      ctx.fillText('José y Victoria', x, y + 18);
+      
+      // Fondo de padrinos
+      const godparentsGrad = ctx.createLinearGradient(x - rectWidth/2, y + rectHeight + rectSpacing, x + rectWidth/2, y + rectHeight + rectSpacing);
+      godparentsGrad.addColorStop(0, 'rgba(180, 140, 200, 0.1)');
+      godparentsGrad.addColorStop(1, 'rgba(200, 160, 220, 0.2)');
+      
+      ctx.fillStyle = godparentsGrad;
+      roundRect(ctx, x - rectWidth/2, y + rectSpacing, rectWidth, rectHeight, 15);
+      ctx.fill();
+      
+      // Borde de padrinos
+      ctx.strokeStyle = 'rgba(180, 140, 200, 0.3)';
+      ctx.lineWidth = 1;
+      roundRect(ctx, x - rectWidth/2, y + rectSpacing, rectWidth, rectHeight, 15);
+      ctx.stroke();
+      
+      // Texto de padrinos
+      ctx.font = 'bold 22px "Cormorant Garamond", "Georgia", serif';
+      ctx.fillStyle = 'rgba(120, 80, 140, 0.9)';
+      ctx.fillText('Padrinos', x, y + rectSpacing + 10);
+      
+      ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+      ctx.fillStyle = '#555';
+      ctx.fillText('Humberto y Ángela', x, y + rectSpacing + 38);
+      
+      ctx.restore();
+    }
+    
+    // Función para dibujar paloma más detallada con efectos 3D digitales
+    function drawDove(x, y, scale) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(scale, scale);
+      
+      // Destellos alrededor de la paloma (efecto digital)
+      for (let i = 0; i < 20; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 30 + Math.random() * 20;
+        const px = Math.cos(angle) * distance;
+        const py = Math.sin(angle) * distance;
+        const size = 0.5 + Math.random() * 1.5;
+        
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.3 + Math.random() * 0.5})`;
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Sombra para efecto 3D
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetX = 3;
+      ctx.shadowOffsetY = 3;
+      
+      // Gradiente para el cuerpo
+      const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 20);
+      bodyGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+      bodyGrad.addColorStop(0.8, 'rgba(245, 245, 255, 0.9)');
+      bodyGrad.addColorStop(1, 'rgba(230, 230, 250, 0.85)');
+      
+      // Cuerpo con gradiente
+      ctx.fillStyle = bodyGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 20, 15, 0, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Cabeza con gradiente
+      const headGrad = ctx.createRadialGradient(-15, -5, 0, -15, -5, 10);
+      headGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+      headGrad.addColorStop(1, 'rgba(240, 240, 250, 0.9)');
+      
+      ctx.fillStyle = headGrad;
+      ctx.beginPath();
+      ctx.ellipse(-15, -5, 10, 8, -0.3, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Pico con efecto metálico
+      const beakGrad = ctx.createLinearGradient(-28, -5, -25, -5);
+      beakGrad.addColorStop(0, 'rgba(255, 210, 120, 0.9)');
+      beakGrad.addColorStop(0.5, 'rgba(255, 230, 150, 0.95)');
+      beakGrad.addColorStop(1, 'rgba(255, 200, 100, 0.9)');
+      
+      ctx.fillStyle = beakGrad;
+      ctx.beginPath();
+      ctx.moveTo(-25, -5);
+      ctx.lineTo(-28, -3);
+      ctx.lineTo(-25, -1);
+      ctx.fill();
+      
+      // Quitar sombra para las alas
+      ctx.shadowColor = 'transparent';
+      
+      // Alas con efecto digital
+      // Ala izquierda
+      const leftWingGrad = ctx.createLinearGradient(-5, 0, -10, 15);
+      leftWingGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+      leftWingGrad.addColorStop(1, 'rgba(230, 230, 250, 0.8)');
+      
+      ctx.fillStyle = leftWingGrad;
+      ctx.beginPath();
+      ctx.moveTo(-5, 0);
+      ctx.quadraticCurveTo(-20, 20, 0, 25);
+      ctx.quadraticCurveTo(5, 10, -5, 0);
+      ctx.fill();
+      
+      // Detalles digitales en el ala izquierda
+      for (let i = 0; i < 5; i++) {
+        const px = -10 + Math.random() * 10;
+        const py = 5 + Math.random() * 15;
+        const size = 0.2 + Math.random() * 0.8;
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Ala derecha
+      const rightWingGrad = ctx.createLinearGradient(5, 0, 20, 15);
+      rightWingGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+      rightWingGrad.addColorStop(1, 'rgba(230, 230, 250, 0.8)');
+      
+      ctx.fillStyle = rightWingGrad;
+      ctx.beginPath();
+      ctx.moveTo(5, 0);
+      ctx.quadraticCurveTo(30, 15, 25, 25);
+      ctx.quadraticCurveTo(10, 15, 5, 0);
+      ctx.fill();
+      
+      // Detalles digitales en el ala derecha
+      for (let i = 0; i < 5; i++) {
+        const px = 10 + Math.random() * 10;
+        const py = 5 + Math.random() * 15;
+        const size = 0.2 + Math.random() * 0.8;
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Detalle ojo brillante
+      ctx.fillStyle = 'rgba(20, 20, 50, 0.9)';
+      ctx.beginPath();
+      ctx.arc(-20, -5, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Brillo en el ojo (efecto 3D)
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.beginPath();
+      ctx.arc(-20.5, -5.5, 0.5, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.restore();
+    }
+    
+    // Función para dibujar un separador decorativo con efectos 3D
+    function drawDivider(x, y, width) {
+      ctx.save();
+      ctx.translate(x, y);
+      
+      // Sombra para efecto 3D
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+      ctx.shadowBlur = 4;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+      
+      // Línea central con gradiente
+      const lineGrad = ctx.createLinearGradient(-width/2, 0, width/2, 0);
+      lineGrad.addColorStop(0, 'rgba(180, 180, 200, 0.2)');
+      lineGrad.addColorStop(0.5, 'rgba(180, 180, 200, 0.5)');
+      lineGrad.addColorStop(1, 'rgba(180, 180, 200, 0.2)');
+      
+      ctx.strokeStyle = lineGrad;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(-width/2, 0);
+      ctx.lineTo(width/2, 0);
+      ctx.stroke();
+      
+      // Pequeños detalles digitales a lo largo de la línea
+      for (let i = 0; i < 5; i++) {
+        const posX = -width/2 + (width * i/4);
+        ctx.fillStyle = 'rgba(200, 200, 220, 0.3)';
+        ctx.beginPath();
+        ctx.arc(posX, 0, 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Ornamento central con gradiente
+      const circleGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 5);
+      circleGrad.addColorStop(0, 'rgba(200, 200, 220, 0.8)');
+      circleGrad.addColorStop(1, 'rgba(180, 180, 200, 0.4)');
+      
+      ctx.fillStyle = circleGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, 4, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Brillo central (efecto 3D)
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+      ctx.beginPath();
+      ctx.arc(-1, -1, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.restore();
+    }
+
+    // Dibuja borde dorado parpadeante con efecto 3D
+    function drawGoldenFlicker(alpha, lineW) {
+      ctx.save();
+      
+      // Sombra para efecto 3D
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetX = 3;
+      ctx.shadowOffsetY = 3;
+      
+      // Gradiente dorado
+      const goldGrad = ctx.createLinearGradient(
+        imgX, imgY, 
+        imgX + imgW, imgY + imgH
+      );
+      goldGrad.addColorStop(0, `rgba(255, 215, 0, ${alpha * 0.8})`);
+      goldGrad.addColorStop(0.5, `rgba(218, 165, 32, ${alpha})`);
+      goldGrad.addColorStop(1, `rgba(255, 215, 0, ${alpha * 0.8})`);
+      
+      ctx.strokeStyle = goldGrad;
+      ctx.lineWidth = lineW;
+      ctx.strokeRect(imgX - 10, imgY - 10, imgW + 20, imgH + 20);
+      
+      // Puntos brillantes en las esquinas
+      ctx.shadowColor = 'transparent';
+      ctx.fillStyle = `rgba(255, 255, 240, ${alpha + 0.2})`;
+      
+      // Esquinas
+      const corners = [
+        {x: imgX - 10, y: imgY - 10},
+        {x: imgX + imgW + 10, y: imgY - 10},
+        {x: imgX - 10, y: imgY + imgH + 10},
+        {x: imgX + imgW + 10, y: imgY + imgH + 10}
+      ];
+      
+      corners.forEach(point => {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      ctx.restore();
+    }
+
+    // Dibuja partículas alrededor de la imagen con efectos 3D digitales
+    function drawParticles(time) {
+      const particleCount = 40; // Aumentar número de partículas para mayor densidad
+      const baseRadius = imgW/2 + 30;
+      
+      ctx.save();
+      ctx.translate(imgX + imgW/2, imgY + imgH/2);
+      
+      // Aura interactiva líquida alrededor de la imagen
+      const pulseIntensity = 0.05 + Math.sin(time * 0.002) * 0.02;
+      
+      // Capas de aura con movimiento líquido
+      for (let layer = 0; layer < 3; layer++) {
+        const layerOffset = layer * 20;
+        const layerTime = time * (0.001 + layer * 0.0005);
+        const distortion = 8 + layer * 4;
+        
+        // Crear forma irregular usando Bézier
+        ctx.beginPath();
+        for (let i = 0; i < 12; i++) {
+          const angle = (i / 12) * Math.PI * 2;
+          const nextAngle = ((i + 1) / 12) * Math.PI * 2;
+          
+          // Radio con distorsión líquida
+          const radius = baseRadius + layerOffset + Math.sin(layerTime + i * 0.5) * distortion;
+          const nextRadius = baseRadius + layerOffset + Math.sin(layerTime + (i + 1) * 0.5) * distortion;
+          
+          // Puntos de control para curva Bézier
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+          
+          const cpX1 = Math.cos(angle + Math.PI/24) * (radius + distortion);
+          const cpY1 = Math.sin(angle + Math.PI/24) * (radius + distortion);
+          
+          const cpX2 = Math.cos(nextAngle - Math.PI/24) * (nextRadius + distortion);
+          const cpY2 = Math.sin(nextAngle - Math.PI/24) * (nextRadius + distortion);
+          
+          const nextX = Math.cos(nextAngle) * nextRadius;
+          const nextY = Math.sin(nextAngle) * nextRadius;
+          
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          }
+          
+          ctx.bezierCurveTo(cpX1, cpY1, cpX2, cpY2, nextX, nextY);
+        }
+        
+        // Colores con gradiente para cada capa
+        let layerAlpha = pulseIntensity * (0.8 - layer * 0.2);
+        let gradColors;
+        
+        switch(layer) {
+          case 0: // Dorado interno
+            gradColors = {
+              inner: `rgba(255, 215, 0, ${layerAlpha})`,
+              mid: `rgba(255, 235, 180, ${layerAlpha * 0.7})`,
+              outer: 'rgba(255, 215, 0, 0)'
+            };
+            break;
+          case 1: // Azul celestial medio
+            gradColors = {
+              inner: `rgba(150, 180, 255, ${layerAlpha * 0.8})`,
+              mid: `rgba(180, 200, 255, ${layerAlpha * 0.5})`,
+              outer: 'rgba(150, 180, 255, 0)'
+            };
+            break;
+          case 2: // Púrpura externo
+            gradColors = {
+              inner: `rgba(200, 150, 255, ${layerAlpha * 0.6})`,
+              mid: `rgba(220, 180, 255, ${layerAlpha * 0.4})`,
+              outer: 'rgba(200, 150, 255, 0)'
+            };
+            break;
+        }
+        
+        // Aplicar gradiente con resplandor HD
+        const auraGrad = ctx.createRadialGradient(0, 0, baseRadius - 10, 0, 0, baseRadius + layerOffset + 60);
+        auraGrad.addColorStop(0, gradColors.inner);
+        auraGrad.addColorStop(0.5, gradColors.mid);
+        auraGrad.addColorStop(1, gradColors.outer);
+        
+        ctx.fillStyle = auraGrad;
+        ctx.fill();
+      }
+      
+      // Añadir efecto de cuadrícula digital sutil alrededor de la imagen
+      drawDigitalFrame(baseRadius, time);
+      
+      // Efecto de ondas líquidas con interferencia
+      for (let wave = 0; wave < 3; wave++) {
+        const waveRadius = baseRadius + 20 + wave * 15;
+        const waveWidth = 2 + wave * 0.5;
+        const waveAmplitude = 1 + wave * 0.5;
+        const waveFrequency = 10 + wave * 5;
+        const waveSpeed = 0.003 + wave * 0.001;
+        
+        ctx.beginPath();
+        for (let i = 0; i <= 360; i += 5) {
+          const angle = (i * Math.PI) / 180;
+          const distort = Math.sin(angle * waveFrequency + time * waveSpeed) * waveAmplitude;
+          const radius = waveRadius + distort;
+          
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+          
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.closePath();
+        
+        const waveGradient = ctx.createLinearGradient(
+          -waveRadius, -waveRadius, waveRadius, waveRadius
+        );
+        
+        // Colores con cambio temporal HD
+        const hue1 = (240 + Math.sin(time * 0.001) * 20) % 360;
+        const hue2 = (60 + Math.sin(time * 0.001) * 20) % 360;
+        
+        waveGradient.addColorStop(0, `hsla(${hue1}, 80%, 70%, ${0.1 + Math.sin(time * 0.002) * 0.05})`);
+        waveGradient.addColorStop(0.5, `hsla(${(hue1 + hue2) / 2}, 80%, 65%, ${0.2 + Math.sin(time * 0.003) * 0.05})`);
+        waveGradient.addColorStop(1, `hsla(${hue2}, 80%, 70%, ${0.1 + Math.sin(time * 0.002) * 0.05})`);
+        
+        ctx.strokeStyle = waveGradient;
+        ctx.lineWidth = waveWidth;
+        ctx.stroke();
+      }
+      
+      // Partículas con variación 3D y estilo líquido HD
+      for (let i = 0; i < particleCount; i++) {
+        // Órbita con animación más dinámica y movimiento natural
+        const orbitSpeed = 0.0004 + (i / particleCount) * 0.0003;
+        const orbitPhase = (i / particleCount) * Math.PI * 2;
+        const angle = orbitPhase + time * orbitSpeed;
+        
+        // Variación de radio para efecto 3D líquido
+        const radiusVar = baseRadius + Math.sin(time * 0.0008 + i * 0.5) * 20;
+        const radiusPhase = Math.sin(time * 0.0005 + i * 0.2) * 40;
+        const x = Math.cos(angle) * (radiusVar + radiusPhase);
+        const y = Math.sin(angle) * (radiusVar + radiusPhase * 0.7); // Compresión vertical para efecto 3D
+        
+        // Variación de tamaño para simular acercamiento/alejamiento con más dinamismo
+        const sizeVar = 2 + Math.sin(time * 0.001 + i) * 4;
+        const size = sizeVar > 0 ? sizeVar : 0.5;
+        
+        // Decidir aleatoriamente el tipo de partícula para mayor variedad visual
+        const particleType = Math.floor((i + time * 0.001) % 5);
+        
+        // Color con variación temporal para mayor dinamismo
+        const alphaBase = 0.3 + Math.sin(time * 0.002 + i * 0.7) * 0.2;
+        const alphaVar = alphaBase > 0 ? alphaBase : 0.1;
+        
+        // Hue shift para colores más ricos pero manteniendo el tema
+        const hueBase = (i * 10 + time * 0.01) % 360;
+        const hue = hueBase < 60 ? hueBase : (hueBase % 60); // Mantener en tonos dorados (0-60)
+        
+        switch(particleType) {
+          case 0: // Gota líquida con gradiente
+            // Gradiente interno con resplandor HD
+            const dropGrad = ctx.createRadialGradient(x, y, 0, x, y, size * 2);
+            dropGrad.addColorStop(0, `rgba(255, 255, 255, ${alphaVar + 0.4})`);
+            dropGrad.addColorStop(0.2, `rgba(255, 255, 200, ${alphaVar + 0.3})`);
+            dropGrad.addColorStop(0.5, `rgba(255, 235, 150, ${alphaVar + 0.2})`);
+            dropGrad.addColorStop(1, `rgba(255, 215, 0, 0)`);
+            
+            // Dibujar gota líquida (forma irregular)
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(angle + time * 0.0005);
+            
+            ctx.fillStyle = dropGrad;
+            ctx.beginPath();
+            
+            // Forma de gota con distorsión líquida
+            const dropFactor = 1.2 + Math.sin(time * 0.002 + i) * 0.2;
+            ctx.moveTo(0, -size * dropFactor);
+            
+            for (let j = 0; j < 360; j += 30) {
+              const dropAngle = (j * Math.PI) / 180;
+              const dropDistort = 0.8 + Math.sin(dropAngle * 3 + time * 0.002) * 0.2;
+              const dx = Math.cos(dropAngle) * size * dropDistort;
+              const dy = Math.sin(dropAngle) * size * dropDistort * dropFactor;
+              ctx.lineTo(dx, dy);
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+            
+            // Punto brillante de reflejo HD
+            ctx.fillStyle = `rgba(255, 255, 255, ${alphaVar + 0.6})`;
+            ctx.beginPath();
+            ctx.ellipse(-size * 0.2, -size * 0.3, size * 0.3, size * 0.2, Math.PI/4, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.restore();
+            break;
+            
+          case 1: // Cristal/prisma con refracción
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(time * 0.0003 * i);
+            
+            // Prisma base
+            const prismSides = 6;
+            const prismRadius = size * (1 + Math.sin(time * 0.002) * 0.2);
+            
+            // Gradiente con efecto de refracción
+            const prismGrad = ctx.createLinearGradient(-prismRadius, -prismRadius, prismRadius, prismRadius);
+            prismGrad.addColorStop(0, `hsla(${hue}, 90%, 80%, ${alphaVar + 0.4})`);
+            prismGrad.addColorStop(0.3, `hsla(${hue + 20}, 90%, 70%, ${alphaVar + 0.3})`);
+            prismGrad.addColorStop(0.7, `hsla(${hue + 40}, 80%, 60%, ${alphaVar + 0.2})`);
+            prismGrad.addColorStop(1, `hsla(${hue + 60}, 80%, 70%, ${alphaVar + 0.1})`);
+            
+            ctx.fillStyle = prismGrad;
+            ctx.beginPath();
+            
+            for (let j = 0; j < prismSides; j++) {
+              const prismAngle = (j / prismSides) * Math.PI * 2;
+              const px = Math.cos(prismAngle) * prismRadius;
+              const py = Math.sin(prismAngle) * prismRadius;
+              
+              if (j === 0) {
+                ctx.moveTo(px, py);
+              } else {
+                ctx.lineTo(px, py);
+              }
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+            
+            // Reflejo brillante HD
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alphaVar + 0.5})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(-prismRadius * 0.3, -prismRadius * 0.3);
+            ctx.lineTo(prismRadius * 0.3, prismRadius * 0.3);
+            ctx.stroke();
+            
+            ctx.restore();
+            break;
+            
+          case 2: // Nebulosa digital con movimiento fluido
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Crear forma nebulosa con varias capas
+            for (let layer = 0; layer < 3; layer++) {
+              const layerSize = size * (0.6 + layer * 0.3) * (1 + Math.sin(time * 0.002 + layer) * 0.2);
+              const layerRotation = time * 0.0002 * (layer + 1);
+              
+              ctx.rotate(layerRotation);
+              
+              // Gradiente con cambio de color HD
+              const nebulaGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, layerSize);
+              
+              const nebulaHue = (hue + layer * 20) % 60; // Mantener dorado
+              nebulaGrad.addColorStop(0, `hsla(${nebulaHue}, 90%, 75%, ${(alphaVar + 0.2) * (1 - layer * 0.2)})`);
+              nebulaGrad.addColorStop(0.7, `hsla(${nebulaHue + 10}, 85%, 65%, ${(alphaVar + 0.1) * (1 - layer * 0.3)})`);
+              nebulaGrad.addColorStop(1, `hsla(${nebulaHue + 20}, 80%, 60%, 0)`);
+              
+              ctx.fillStyle = nebulaGrad;
+              
+              // Forma irregular usando curvas bezier
+              ctx.beginPath();
+              const points = 6 + layer;
+              
+              for (let p = 0; p <= points; p++) {
+                const pointAngle = (p / points) * Math.PI * 2;
+                const pointRad = layerSize * (0.8 + Math.sin(pointAngle * 3 + time * 0.002) * 0.2);
+                
+                const px = Math.cos(pointAngle) * pointRad;
+                const py = Math.sin(pointAngle) * pointRad;
+                
+                if (p === 0) {
+                  ctx.moveTo(px, py);
+                } else {
+                  const prevAngle = ((p - 1) / points) * Math.PI * 2;
+                  const midAngle = (prevAngle + pointAngle) / 2;
+                  const midRad = layerSize * (0.9 + Math.sin(midAngle * 3 + time * 0.003) * 0.3);
+                  
+                  const cpx = Math.cos(midAngle) * midRad * 1.5;
+                  const cpy = Math.sin(midAngle) * midRad * 1.5;
+                  
+                  ctx.quadraticCurveTo(cpx, cpy, px, py);
+                }
+              }
+              
+              ctx.closePath();
+              ctx.fill();
+            }
+            
+            ctx.restore();
+            break;
+            
+          case 3: // Anillo de energía con fluctuación
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Anillo principal con efecto HD
+            for (let ring = 0; ring < 2; ring++) {
+              const ringSize = size * (1 + ring * 0.5);
+              const ringWidth = 1.5 - ring * 0.5;
+              
+              // Forma ondulada para el anillo
+              ctx.beginPath();
+              for (let a = 0; a <= 360; a += 5) {
+                const ringAngle = (a * Math.PI) / 180;
+                const ringDistort = Math.sin(ringAngle * 6 + time * 0.003) * (1 + ring) * 0.5;
+                const ringRadius = ringSize + ringDistort;
+                
+                const rx = Math.cos(ringAngle) * ringRadius;
+                const ry = Math.sin(ringAngle) * ringRadius;
+                
+                if (a === 0) {
+                  ctx.moveTo(rx, ry);
+                } else {
+                  ctx.lineTo(rx, ry);
+                }
+              }
+              ctx.closePath();
+              
+              // Gradiente para efecto energético
+              const ringGrad = ctx.createLinearGradient(-ringSize, -ringSize, ringSize, ringSize);
+              ringGrad.addColorStop(0, `hsla(${hue - 10}, 90%, 75%, ${alphaVar + 0.2})`);
+              ringGrad.addColorStop(0.5, `hsla(${hue}, 85%, 70%, ${alphaVar + 0.1})`);
+              ringGrad.addColorStop(1, `hsla(${hue + 10}, 80%, 65%, ${alphaVar})`);
+              
+              ctx.strokeStyle = ringGrad;
+              ctx.lineWidth = ringWidth;
+              ctx.stroke();
+            }
+            
+            // Arco interior luminoso con movimiento
+            const arcStart = (time * 0.0005 * i) % (Math.PI * 2);
+            const arcLength = Math.PI * (0.7 + Math.sin(time * 0.001) * 0.3);
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.7, arcStart, arcStart + arcLength);
+            
+            // Gradiente para el arco
+            const arcGrad = ctx.createLinearGradient(
+              Math.cos(arcStart) * size, Math.sin(arcStart) * size,
+              Math.cos(arcStart + arcLength) * size, Math.sin(arcStart + arcLength) * size
+            );
+            
+            arcGrad.addColorStop(0, `rgba(255, 255, 255, ${alphaVar + 0.5})`);
+            arcGrad.addColorStop(0.5, `rgba(255, 255, 220, ${alphaVar + 0.7})`);
+            arcGrad.addColorStop(1, `rgba(255, 255, 255, ${alphaVar + 0.5})`);
+            
+            ctx.strokeStyle = arcGrad;
+            ctx.lineWidth = 1.8;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+            ctx.lineCap = 'butt';
+            
+            ctx.restore();
+            break;
+            
+          case 4: // Luz brillante estelar
+            // Estrella de luz con rayos
+            const starGrad = ctx.createRadialGradient(x, y, 0, x, y, size * 3);
+            starGrad.addColorStop(0, `rgba(255, 255, 255, ${alphaVar + 0.6})`);
+            starGrad.addColorStop(0.2, `rgba(255, 250, 200, ${alphaVar + 0.4})`);
+            starGrad.addColorStop(0.5, `rgba(255, 240, 150, ${alphaVar + 0.2})`);
+            starGrad.addColorStop(1, 'rgba(255, 220, 100, 0)');
+            
+            ctx.fillStyle = starGrad;
+            ctx.beginPath();
+            ctx.arc(x, y, size * 3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Núcleo brillante
+            ctx.fillStyle = `rgba(255, 255, 255, ${alphaVar + 0.8})`;
+            ctx.beginPath();
+            ctx.arc(x, y, size * 0.8, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Rayos de luz HD
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(time * 0.0003);
+            
+            const rayCount = 6;
+            for (let r = 0; r < rayCount; r++) {
+              const rayAngle = (r / rayCount) * Math.PI * 2;
+              const rayLength = size * (4 + Math.sin(time * 0.002 + r) * 2);
+              
+              ctx.strokeStyle = `rgba(255, 255, 220, ${alphaVar + 0.3})`;
+              ctx.lineWidth = 1 + Math.sin(time * 0.003 + r) * 0.5;
+              
+              ctx.beginPath();
+              ctx.moveTo(0, 0);
+              ctx.lineTo(Math.cos(rayAngle) * rayLength, Math.sin(rayAngle) * rayLength);
+              ctx.stroke();
+            }
+            
+            ctx.restore();
+            break;
+        }
+        
+        // Líneas de conexión de flujo de energía (estilo sublime HD)
+        if (i % 4 === 0 && i < particleCount - 4) {
+          // Conectar con la siguiente partícula
+          const nextI = i + 4;
+          const nextAngle = (nextI / particleCount) * Math.PI * 2 + time * 0.001;
+          const nextRadiusVar = baseRadius + Math.sin(time * 0.001 + nextI * 0.5) * 20;
+          const nextX = Math.cos(nextAngle) * nextRadiusVar;
+          const nextY = Math.sin(nextAngle) * nextRadiusVar;
+          
+          // Gradiente de conexión HD
+          const connectionGrad = ctx.createLinearGradient(x, y, nextX, nextY);
+          connectionGrad.addColorStop(0, `rgba(255, 215, 0, ${alphaVar * 0.2})`);
+          connectionGrad.addColorStop(0.5, `rgba(255, 255, 200, ${alphaVar * 0.3})`);
+          connectionGrad.addColorStop(1, `rgba(255, 215, 0, ${alphaVar * 0.2})`);
+          
+          ctx.strokeStyle = connectionGrad;
+          ctx.lineWidth = 0.7;
+          
+          // Curva Bézier para un flujo más natural
+          const ctrlX = (x + nextX) / 2 + Math.sin(time * 0.001 + i) * 20;
+          const ctrlY = (y + nextY) / 2 + Math.cos(time * 0.001 + i) * 20;
+          
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.quadraticCurveTo(ctrlX, ctrlY, nextX, nextY);
+          ctx.stroke();
+          
+          // Pequeños nodos en la línea de conexión (efecto de flujo de energía)
+          const nodeCount = 3 + Math.floor(Math.sin(time * 0.001 + i) * 2);
+          for (let n = 1; n <= nodeCount; n++) {
+            const t = n / (nodeCount + 1);
+            // Ecuación cuadrática para posición en la curva de Bézier
+            const nt = 1 - t;
+            const nx = nt*nt*x + 2*nt*t*ctrlX + t*t*nextX;
+            const ny = nt*nt*y + 2*nt*t*ctrlY + t*t*nextY;
+            
+            // Tamaño de nodo pulsante
+            const nodePhase = time * 0.004 + n * 0.5;
+            const nodeSize = 0.7 + Math.sin(nodePhase) * 0.5;
+            
+            // Gradiente para nodo brillante
+            const nodeGrad = ctx.createRadialGradient(nx, ny, 0, nx, ny, nodeSize * 2);
+            nodeGrad.addColorStop(0, `rgba(255, 255, 255, ${alphaVar * 0.9})`);
+            nodeGrad.addColorStop(0.5, `rgba(255, 255, 200, ${alphaVar * 0.7})`);
+            nodeGrad.addColorStop(1, `rgba(255, 215, 0, 0)`);
+            
+            ctx.fillStyle = nodeGrad;
+            ctx.beginPath();
+            ctx.arc(nx, ny, nodeSize * 2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+      
+      // Destellos aleatorios para efecto de energía celestial HD
+      if (Math.random() > 0.97) {
+        // Posición aleatoria alrededor de la imagen
+        const flashAngle = Math.random() * Math.PI * 2;
+        const flashRadius = baseRadius * (0.7 + Math.random() * 0.5);
+        const flashX = Math.cos(flashAngle) * flashRadius;
+        const flashY = Math.sin(flashAngle) * flashRadius;
+        
+        // Destello con gradiente de alta calidad
+        const flashGrad = ctx.createRadialGradient(flashX, flashY, 0, flashX, flashY, 15);
+        flashGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+        flashGrad.addColorStop(0.3, 'rgba(255, 250, 200, 0.8)');
+        flashGrad.addColorStop(0.6, 'rgba(255, 240, 180, 0.5)');
+        flashGrad.addColorStop(1, 'rgba(255, 215, 0, 0)');
+        
+        ctx.fillStyle = flashGrad;
+        ctx.beginPath();
+        ctx.arc(flashX, flashY, 15, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Rayos de destello HD
+        const lineCount = 6;
+        for (let i = 0; i < lineCount; i++) {
+          const angle = (i / lineCount) * Math.PI * 2;
+          const length = 15 + Math.random() * 15;
+          
+          // Gradiente para rayo
+          const rayGrad = ctx.createLinearGradient(flashX, flashY, 
+            flashX + Math.cos(angle) * length, 
+            flashY + Math.sin(angle) * length);
+          rayGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+          rayGrad.addColorStop(1, 'rgba(255, 255, 200, 0)');
+          
+          ctx.strokeStyle = rayGrad;
+          ctx.lineWidth = 1.5;
+          
+          ctx.beginPath();
+          ctx.moveTo(flashX, flashY);
+          ctx.lineTo(flashX + Math.cos(angle) * length, flashY + Math.sin(angle) * length);
+          ctx.stroke();
+        }
+        
+        // Anillo expansivo (onda de energía)
+        ctx.strokeStyle = 'rgba(255, 255, 200, 0.3)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(flashX, flashY, 5, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Segunda onda más grande
+        ctx.strokeStyle = 'rgba(255, 255, 200, 0.1)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(flashX, flashY, 10, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      
+      // Lentes de luz ocasionales (efectos prismáticos)
+      if (Math.random() < 0.01) {
+        const lensX = (Math.random() - 0.5) * baseRadius * 2;
+        const lensY = (Math.random() - 0.5) * baseRadius * 2;
+        const lensSize = 30 + Math.random() * 50;
+        
+        // Gradiente de lente con colores celestiales
+        const lensGrad = ctx.createRadialGradient(lensX, lensY, 0, lensX, lensY, lensSize);
+        lensGrad.addColorStop(0, 'rgba(255, 255, 255, 0.2)');
+        lensGrad.addColorStop(0.3, 'rgba(200, 220, 255, 0.15)');
+        lensGrad.addColorStop(0.7, 'rgba(255, 240, 200, 0.1)');
+        lensGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.fillStyle = lensGrad;
+        ctx.beginPath();
+        ctx.arc(lensX, lensY, lensSize, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Línea de reflejo HD
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(lensX - lensSize * 0.3, lensY - lensSize * 0.3);
+        ctx.lineTo(lensX + lensSize * 0.3, lensY + lensSize * 0.3);
+        ctx.stroke();
+      }
+      
+      ctx.restore();
+    }
+
+    // Función para dibujar marco digital alrededor de la imagen con efectos 3D
+    function drawDigitalFrame(radius, time) {
+      ctx.save();
+      
+      // Efecto de cuadrícula holográfica 3D (gradiente líquido)
+      const gridSize = 10;
+      const gridRows = Math.ceil((radius * 2) / gridSize);
+      const gridCols = gridRows;
+      
+      // Crear efecto de perspectiva
+      for (let row = 0; row < gridRows; row++) {
+        for (let col = 0; col < gridCols; col++) {
+          // Calcular posición
+          const angle = Math.atan2(row - gridRows/2, col - gridCols/2);
+          const dist = Math.sqrt(Math.pow(row - gridRows/2, 2) + Math.pow(col - gridCols/2, 2));
+          
+          // Solo dibujar puntos dentro del radio
+          if (dist * gridSize < radius * 1.2) {
+            // Añadir distorsión basada en el tiempo
+            const distortion = Math.sin(dist * 0.3 + time * 0.002) * 2;
+            const sizeVar = Math.cos(angle * 3 + time * 0.003) * 0.5 + 0.5;
+            
+            // Coordenadas con efecto de ondulación
+            const x = (col - gridCols/2) * gridSize + Math.sin(time * 0.001 + row * 0.1) * 2;
+            const y = (row - gridRows/2) * gridSize + Math.cos(time * 0.001 + col * 0.1) * 2;
+            
+            // Calcular profundidad (Z) para efecto 3D
+            const z = Math.sin(dist * 0.2 + time * 0.001) * 0.5 + 0.5;
+            
+            // Tamaño variable con distancia y tiempo
+            const pointSize = 0.5 + sizeVar * z * 1.5;
+            
+            // Color con variación basada en la posición y tiempo
+            const hue = (30 + dist * 2 + time * 0.01) % 60; // Tonos dorados
+            const brightness = 70 + z * 30; // Más brillante en "frente"
+            
+            // Decidir opacidad basada en múltiples factores para efecto orgánico
+            let alpha = 0.1 + z * 0.2;
+            
+            // Efecto de pulso radiante
+            const pulseFreq = 0.1;
+            const pulseTime = time * 0.001;
+            const distFromCenter = Math.sqrt(x*x + y*y);
+            const pulseFactor = Math.sin(distFromCenter * pulseFreq - pulseTime);
+            
+            // Ajustar alpha con el pulso
+            alpha *= 0.5 + pulseFactor * 0.5;
+            
+            // Efecto de brillo aleatorio (resplandor intermitente)
+            if (Math.random() < 0.02) {
+              alpha = 0.6;
+            }
+            
+            // Dibujar punto con degradado para efecto de luz
+            const dotGrad = ctx.createRadialGradient(x, y, 0, x, y, pointSize * 2);
+            dotGrad.addColorStop(0, `hsla(${hue}, 90%, ${brightness}%, ${alpha * 1.5})`);
+            dotGrad.addColorStop(0.5, `hsla(${hue+5}, 80%, ${brightness-10}%, ${alpha})`);
+            dotGrad.addColorStop(1, `hsla(${hue+10}, 70%, ${brightness-20}%, 0)`);
+            
+            ctx.fillStyle = dotGrad;
+            ctx.beginPath();
+            ctx.arc(x, y, pointSize * 2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Ocasionalmente dibujar líneas de conexión (efecto de red digital)
+            if (dist % 3 === 0 && Math.random() < 0.3) {
+              // Encontrar el siguiente punto en el patrón
+              const nextCol = (col + 1) % gridCols;
+              const nextRow = (row + 1) % gridRows;
+              
+              const nextX = (nextCol - gridCols/2) * gridSize + Math.sin(time * 0.001 + nextRow * 0.1) * 2;
+              const nextY = (nextRow - gridRows/2) * gridSize + Math.cos(time * 0.001 + nextCol * 0.1) * 2;
+              
+              // Líneas con gradiente y flujo
+              const lineGrad = ctx.createLinearGradient(x, y, nextX, nextY);
+              lineGrad.addColorStop(0, `hsla(${hue}, 80%, ${brightness}%, ${alpha * 0.7})`);
+              lineGrad.addColorStop(1, `hsla(${hue+10}, 70%, ${brightness-10}%, 0)`);
+              
+              ctx.strokeStyle = lineGrad;
+              ctx.lineWidth = 0.5 * z;
+              
+              // Patrón de flujo dinámico
+              const flowOffset = (Math.sin(time * 0.002 + dist) * 0.5 + 0.5) * dist * 0.3;
+              
+              ctx.beginPath();
+              ctx.moveTo(x, y);
+              
+              // Curva para efecto de fluido
+              const midX = (x + nextX) / 2 + Math.sin(time * 0.002 + row * col) * 5;
+              const midY = (y + nextY) / 2 + Math.cos(time * 0.002 + row * col) * 5;
+              
+              ctx.quadraticCurveTo(midX, midY, nextX, nextY);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      
+      // Anillos luminosos concéntricos con movimiento fluido
+      const ringCount = 3;
+      for (let i = 0; i < ringCount; i++) {
+        // Radio variable con tiempo
+        const ringRadius = radius * (0.8 + i * 0.15) + Math.sin(time * 0.001 + i) * 5;
+        
+        // Crear anillo usando puntos para efecto líquido
+        const segments = 60;
+        const ringWidth = 1.5 - i * 0.3;
+        
+        ctx.beginPath();
+        for (let j = 0; j <= segments; j++) {
+          const angle = (j / segments) * Math.PI * 2;
+          // Distorsión radial para efecto fluido
+          const distortion = Math.sin(angle * 8 + time * 0.002 + i) * 3;
+          const r = ringRadius + distortion;
+          
+          const x = Math.cos(angle) * r;
+          const y = Math.sin(angle) * r;
+          
+          if (j === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        
+        // Gradiente para el anillo
+        const ringGrad = ctx.createLinearGradient(-ringRadius, -ringRadius, ringRadius, ringRadius);
+        const baseHue = (30 + i * 10 + time * 0.01) % 60; // Tonos dorados
+        
+        ringGrad.addColorStop(0, `hsla(${baseHue}, 90%, 70%, ${0.1 + Math.sin(time * 0.001 + i) * 0.05})`);
+        ringGrad.addColorStop(0.5, `hsla(${baseHue + 10}, 85%, 65%, ${0.15 + Math.sin(time * 0.002 + i) * 0.05})`);
+        ringGrad.addColorStop(1, `hsla(${baseHue + 20}, 80%, 60%, ${0.1 + Math.sin(time * 0.001 + i) * 0.05})`);
+        
+        ctx.strokeStyle = ringGrad;
+        ctx.lineWidth = ringWidth;
+        ctx.stroke();
+      }
+      
+      // Efecto de chispas y destellos aleatorios
+      const sparkCount = 15;
+      for (let i = 0; i < sparkCount; i++) {
+        const sparkAngle = (i / sparkCount) * Math.PI * 2 + time * 0.0002;
+        const sparkRadius = radius + Math.sin(time * 0.003 + i) * 10;
+        
+        const sparkX = Math.cos(sparkAngle) * sparkRadius;
+        const sparkY = Math.sin(sparkAngle) * sparkRadius;
+        
+        // Tamaño pulsante
+        const sparkSize = 1 + Math.sin(time * 0.01 + i) * 0.5;
+        
+        // Brillos intermitentes
+        if (Math.random() < 0.3) {
+          const sparkGrad = ctx.createRadialGradient(sparkX, sparkY, 0, sparkX, sparkY, sparkSize * 3);
+          sparkGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+          sparkGrad.addColorStop(0.5, 'rgba(255, 255, 200, 0.6)');
+          sparkGrad.addColorStop(1, 'rgba(255, 215, 0, 0)');
+          
+          ctx.fillStyle = sparkGrad;
+          ctx.beginPath();
+          ctx.arc(sparkX, sparkY, sparkSize * 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      
+      // Campos de energía cruzados (efecto de escudo)
+      const fieldCount = 2;
+      for (let i = 0; i < fieldCount; i++) {
+        // Rotación del campo
+        const fieldAngle = (Math.PI / fieldCount) * i + time * 0.0001;
+        
+        ctx.save();
+        ctx.rotate(fieldAngle);
+        
+        // Rango del campo
+        const fieldWidth = radius * 2.2;
+        const fieldHeight = radius * 0.2;
+        
+        // Crear gradiente para el campo
+        const fieldGrad = ctx.createLinearGradient(-fieldWidth/2, 0, fieldWidth/2, 0);
+        fieldGrad.addColorStop(0, 'rgba(255, 215, 0, 0)');
+        fieldGrad.addColorStop(0.2, `rgba(255, 230, 100, ${0.05 + Math.sin(time * 0.002 + i) * 0.03})`);
+        fieldGrad.addColorStop(0.5, `rgba(255, 255, 200, ${0.1 + Math.sin(time * 0.003 + i) * 0.05})`);
+        fieldGrad.addColorStop(0.8, `rgba(255, 230, 100, ${0.05 + Math.sin(time * 0.002 + i) * 0.03})`);
+        fieldGrad.addColorStop(1, 'rgba(255, 215, 0, 0)');
+        
+        ctx.fillStyle = fieldGrad;
+        
+        // Forma del campo con curvas suaves
+        ctx.beginPath();
+        ctx.moveTo(-fieldWidth/2, -fieldHeight/2);
+        ctx.bezierCurveTo(
+          -fieldWidth/4, -fieldHeight/2 - Math.sin(time * 0.003) * 5,
+          fieldWidth/4, -fieldHeight/2 + Math.sin(time * 0.004) * 5,
+          fieldWidth/2, -fieldHeight/2
+        );
+        ctx.lineTo(fieldWidth/2, fieldHeight/2);
+        ctx.bezierCurveTo(
+          fieldWidth/4, fieldHeight/2 - Math.sin(time * 0.004) * 5,
+          -fieldWidth/4, fieldHeight/2 + Math.sin(time * 0.003) * 5,
+          -fieldWidth/2, fieldHeight/2
+        );
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.restore();
+      }
+      
+      ctx.restore();
+    }
+
+    // Animación con efectos 3D digitales
+    let lastTime = 0;
+    function animate(time) {
+      // Calcular delta time para animaciones suaves
+      const deltaTime = lastTime ? time - lastTime : 0;
+      lastTime = time;
+      
+      // Limpiar canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Fondo y bordes con efecto digital
+      drawBackground(time);
+      drawCornerCrosses(time);
+
+      // Elementos fijos
+      drawStaticElements();
+
+      // Parámetros para efectos
+      const alpha = 0.4 + Math.sin(time * 0.001) * 0.3;       // entre 0.1 y 0.7
+      const lineW = 4 + Math.sin(time * 0.002) * 2;           // entre 2 y 6px
+
+      // Dibuja borde dorado mejorado
+      drawGoldenFlicker(alpha, lineW, time);
+      
+      // Partículas digitales alrededor de la imagen
+      drawParticles(time);
+      
+      // Efecto de lente de luz celestial (halo divino)
+      const lensTime = time * 0.0003;
+      const lensX = Math.sin(lensTime) * (canvas.width * 0.3);
+      const lensY = Math.cos(lensTime * 0.7) * (canvas.height * 0.2);
+      const lensSize = 100 + Math.sin(time * 0.0005) * 30;
+      
+      ctx.save();
+      // Gradiente de lente con colores celestiales HD
+      const lensGrad = ctx.createRadialGradient(lensX, lensY, 0, lensX, lensY, lensSize);
+      lensGrad.addColorStop(0, 'rgba(255, 255, 255, 0.15)');
+      lensGrad.addColorStop(0.3, 'rgba(200, 220, 255, 0.1)');
+      lensGrad.addColorStop(0.7, 'rgba(180, 200, 255, 0.05)');
+      lensGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      
+      ctx.fillStyle = lensGrad;
+      ctx.beginPath();
+      ctx.arc(lensX, lensY, lensSize, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Círculos de luz concéntricos
+      for (let i = 0; i < 3; i++) {
+        const ringSize = (i + 1) * lensSize * 0.25;
+        const ringAlpha = 0.05 - i * 0.01;
+        
+        ctx.strokeStyle = `rgba(255, 255, 255, ${ringAlpha})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(lensX, lensY, ringSize, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      ctx.restore();
+      
+      // Destellos digitales aleatorios (simulación de datos digitales celestiales)
+      const sparkChance = Math.random();
+      if (sparkChance > 0.9) {
+        const sparkCount = 1 + Math.floor(Math.random() * 3);
+        for (let i = 0; i < sparkCount; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const size = 1 + Math.random() * 3;
+          
+          // Gradiente para destello HD
+          const sparkGrad = ctx.createRadialGradient(x, y, 0, x, y, size * 2);
+          sparkGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+          sparkGrad.addColorStop(0.5, 'rgba(220, 240, 255, 0.6)');
+          sparkGrad.addColorStop(1, 'rgba(180, 210, 255, 0)');
+          
+          ctx.fillStyle = sparkGrad;
+          ctx.beginPath();
+          ctx.arc(x, y, size * 2, 0, Math.PI * 2);
+          ctx.fill();
+          
+          // Rayos de luz
+          if (Math.random() > 0.5) {
+            const rayCount = 4;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+            ctx.lineWidth = 0.5;
+            
+            for (let j = 0; j < rayCount; j++) {
+              const angle = (j / rayCount) * Math.PI * 2;
+              const length = size * (3 + Math.random() * 2);
+              
+              ctx.beginPath();
+              ctx.moveTo(x, y);
+              ctx.lineTo(x + Math.cos(angle) * length, y + Math.sin(angle) * length);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      
+      // Ocasionalmente dibujar líneas de conexión digital celestial (efecto de red divina)
+      if (Math.random() > 0.97) {
+        ctx.save();
+        
+        // Gradiente para línea etérea
+        const startX = Math.random() * canvas.width;
+        const startY = Math.random() * canvas.height;
+        const endX = Math.random() * canvas.width;
+        const endY = Math.random() * canvas.height;
+        
+        const lineGrad = ctx.createLinearGradient(startX, startY, endX, endY);
+        
+        // Decidir color celestial
+        const lineType = Math.random();
+        if (lineType < 0.33) { // Dorado
+          lineGrad.addColorStop(0, 'rgba(255, 215, 0, 0)');
+          lineGrad.addColorStop(0.5, 'rgba(255, 235, 150, 0.2)');
+          lineGrad.addColorStop(1, 'rgba(255, 215, 0, 0)');
+        } else if (lineType < 0.66) { // Azul celestial
+          lineGrad.addColorStop(0, 'rgba(150, 180, 255, 0)');
+          lineGrad.addColorStop(0.5, 'rgba(180, 200, 255, 0.2)');
+          lineGrad.addColorStop(1, 'rgba(150, 180, 255, 0)');
+        } else { // Blanco divino
+          lineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+          lineGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.2)');
+          lineGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        }
+        
+        ctx.strokeStyle = lineGrad;
+        ctx.lineWidth = 1;
+        
+        // Línea con efecto de onda
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        
+        // Puntos de control para curva
+        const cpX1 = startX + (endX - startX) * 0.3 + Math.random() * 50 - 25;
+        const cpY1 = startY + (endY - startY) * 0.3 + Math.random() * 50 - 25;
+        const cpX2 = startX + (endX - startX) * 0.7 + Math.random() * 50 - 25;
+        const cpY2 = startY + (endY - startY) * 0.7 + Math.random() * 50 - 25;
+        
+        ctx.bezierCurveTo(cpX1, cpY1, cpX2, cpY2, endX, endY);
+        ctx.stroke();
+        
+        // Nodos en la línea
+        const nodeCount = 2 + Math.floor(Math.random() * 3);
+        for (let i = 1; i <= nodeCount; i++) {
+          const t = i / (nodeCount + 1);
+          // Ecuación para punto en curva Bézier
+          const mt = 1 - t;
+          const nodeX = mt*mt*mt*startX + 3*mt*mt*t*cpX1 + 3*mt*t*t*cpX2 + t*t*t*endX;
+          const nodeY = mt*mt*mt*startY + 3*mt*mt*t*cpY1 + 3*mt*t*t*cpY2 + t*t*t*endY;
+          
+          const nodeSize = 1 + Math.random() * 2;
+          
+          // Gradiente de nodo HD
+          const nodeGrad = ctx.createRadialGradient(nodeX, nodeY, 0, nodeX, nodeY, nodeSize * 2);
+          nodeGrad.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+          nodeGrad.addColorStop(0.5, 'rgba(255, 255, 200, 0.5)');
+          nodeGrad.addColorStop(1, 'rgba(255, 235, 150, 0)');
+          
+          ctx.fillStyle = nodeGrad;
+          ctx.beginPath();
+          ctx.arc(nodeX, nodeY, nodeSize * 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
+        ctx.restore();
+      }
+      
+      // Efecto de profundidad de cuadrícula celeste (apenas visible, efecto 3D)
+      if (Math.sin(time * 0.001) > 0.9) { // Aparición sutil e intermitente
+        ctx.save();
+        
+        // Ángulo para efecto de perspectiva
+        const gridAngle = Math.sin(time * 0.0005) * 0.1;
+        ctx.setTransform(
+          Math.cos(gridAngle), 0, 
+          Math.sin(gridAngle) * 0.5, 1, 
+          canvas.width/2, canvas.height/2
+        );
+        
+        const gridSize = 50;
+        const gridAlpha = 0.04 + Math.sin(time * 0.001) * 0.02;
+        const gridWidth = canvas.width * 1.5;
+        const gridHeight = canvas.height * 1.5;
+        
+        // Gradiente para la cuadrícula
+        const gridGrad = ctx.createLinearGradient(
+          -gridWidth/2, -gridHeight/2,
+          gridWidth/2, gridHeight/2
+        );
+        gridGrad.addColorStop(0, `rgba(150, 180, 255, ${gridAlpha})`);
+        gridGrad.addColorStop(0.5, `rgba(200, 220, 255, ${gridAlpha * 1.5})`);
+        gridGrad.addColorStop(1, `rgba(150, 180, 255, ${gridAlpha})`);
+        
+        ctx.strokeStyle = gridGrad;
+        ctx.lineWidth = 0.5;
+        
+        // Líneas horizontales
+        for (let y = -gridHeight/2; y < gridHeight/2; y += gridSize) {
+          // Variación en espacio para efecto dinámico
+          const yVar = y + Math.sin(y * 0.01 + time * 0.0005) * 5;
+          
+          ctx.beginPath();
+          ctx.moveTo(-gridWidth/2, yVar);
+          ctx.lineTo(gridWidth/2, yVar);
+          ctx.stroke();
+        }
+        
+        // Líneas verticales
+        for (let x = -gridWidth/2; x < gridWidth/2; x += gridSize) {
+          // Variación en espacio para efecto dinámico
+          const xVar = x + Math.sin(x * 0.01 + time * 0.0005) * 5;
+          
+          ctx.beginPath();
+          ctx.moveTo(xVar, -gridHeight/2);
+          ctx.lineTo(xVar, gridHeight/2);
+          ctx.stroke();
+        }
+        
+        // Puntos de intersección brillantes
+        const pointAlpha = gridAlpha * 2;
+        for (let x = -gridWidth/2; x < gridWidth/2; x += gridSize) {
+          for (let y = -gridHeight/2; y < gridHeight/2; y += gridSize) {
+            // Solo dibujar algunos puntos para efecto aleatorio
+            if (Math.random() < 0.3) {
+              const xVar = x + Math.sin(x * 0.01 + time * 0.0005) * 5;
+              const yVar = y + Math.sin(y * 0.01 + time * 0.0005) * 5;
+              
+              // Tamaño variable para efecto 3D
+              const pointSize = 1 + Math.sin(x * y * 0.0001 + time * 0.001) * 0.5;
+              
+              const pointGrad = ctx.createRadialGradient(xVar, yVar, 0, xVar, yVar, pointSize * 2);
+              pointGrad.addColorStop(0, `rgba(255, 255, 255, ${pointAlpha * 1.5})`);
+              pointGrad.addColorStop(0.5, `rgba(200, 220, 255, ${pointAlpha})`);
+              pointGrad.addColorStop(1, `rgba(150, 180, 255, 0)`);
+              
+              ctx.fillStyle = pointGrad;
+              ctx.beginPath();
+              ctx.arc(xVar, yVar, pointSize * 2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        }
+        
+        ctx.restore();
+      }
+      
+      // Ocasionalmente mostrar ondas de energía celestial
+      if (Math.random() > 0.995) {
+        const waveX = canvas.width * (0.3 + Math.random() * 0.4);
+        const waveY = canvas.height * (0.3 + Math.random() * 0.4);
+        const waveRadius = 10; // Radio inicial
+        
+        // Añadir a la lista de ondas
+        waves.push({
+          x: waveX,
+          y: waveY,
+          radius: waveRadius,
+          alpha: 0.5,
+          growth: 2 + Math.random() * 2
+        });
+      }
+      
+      // Animar ondas existentes
+      for (let i = 0; i < waves.length; i++) {
+        const wave = waves[i];
+        
+        // Dibujar onda
+        ctx.strokeStyle = `rgba(255, 255, 255, ${wave.alpha})`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(wave.x, wave.y, wave.radius, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Actualizar onda
+        wave.radius += wave.growth;
+        wave.alpha *= 0.95; // Desvanecer
+        
+        // Eliminar ondas desvanecidas
+        if (wave.alpha < 0.01) {
+          waves.splice(i, 1);
+          i--;
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+    
+    // Array para almacenar ondas de energía
+    const waves = [];
+
+    // Inicia todo tras cargar la foto y fuente
+    // Función para asegurar que la animación siempre inicie, incluso si hay problemas con la carga
+    function startAnimation() {
+      console.log('Starting animation');
+      // Aseguramos que el canvas tenga sus dimensiones correctas
+      canvas.width = 800;
+      canvas.height = 1200;
+      resizeCanvas();
+      animate(0);
+    }
+    
+    // Si la imagen ya está cargada (por ejemplo, desde caché), iniciamos de inmediato
+    if (img.complete) {
+      console.log('Image already loaded');
+      startAnimation();
+    } else {
+      // Si no, esperamos a que se cargue la imagen y las fuentes
+      Promise.all([
+        new Promise(resolve => { 
+          img.onload = () => {
+            console.log('Image loaded successfully');
+            resolve();
+          };
+          // Asegurar que después de 3 segundos iniciamos de todas formas
+          setTimeout(resolve, 3000);
+        }),
+        fontLoaded
+      ]).then(startAnimation);
+    }
+    
+    // Evento adicional para detectar problemas
+    window.addEventListener('load', () => {
+      console.log('Window loaded');
+      // Si después de que la ventana cargue aún no se ve nada, intentamos de nuevo
+      setTimeout(() => {
+        if (!canvas.getContext) {
+          console.error('Canvas context not available');
+          document.getElementById('fallbackMessage').style.display = 'block';
+          canvas.style.display = 'none';
+        } else {
+          try {
+            // Verificar si el canvas es visible
+            const canvasRect = canvas.getBoundingClientRect();
+            const isVisible = canvasRect.width > 0 && canvasRect.height > 0;
+            
+            if (!isVisible) {
+              console.warn('Canvas has zero dimensions - attempting to fix');
+              canvas.width = 800;
+              canvas.height = 1200;
+              resizeCanvas();
+            }
+            
+            startAnimation();
+            
+            // Verificar si el canvas está pintando correctamente
+            setTimeout(() => {
+              const imageData = ctx.getImageData(0, 0, 10, 10).data;
+              let hasData = false;
+              for (let i = 0; i < imageData.length; i++) {
+                if (imageData[i] !== 0) {
+                  hasData = true;
+                  break;
+                }
+              }
+              
+              if (!hasData) {
+                console.warn('Canvas appears to be empty - trying once more');
+                startAnimation();
+              }
+            }, 100);
+          } catch (e) {
+            console.error('Error in canvas rendering:', e);
+            document.getElementById('fallbackMessage').style.display = 'block';
+          }
+        }
+      }, 500);
+    });
+    
+    // Funciones para el modal de la foto
+    function openPhotoModal() {
+      const modal = document.getElementById('photoModal');
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Prevenir scroll
+    }
+    
+    function closePhotoModal() {
+      const modal = document.getElementById('photoModal');
+      modal.classList.remove('show');
+      document.body.style.overflow = 'auto'; // Restaurar scroll
+    }
+    
+    // Cerrar modal al hacer clic fuera de la imagen
+    document.getElementById('photoModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePhotoModal();
+      }
+    });
+    
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePhotoModal();
+      }
+    });
+    
+    // Detectar clics en el canvas para abrir el modal cuando se hace clic en la foto
+    canvas.addEventListener('click', function(e) {
+      if (!img || !imageLoaded) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      const clickX = (e.clientX - rect.left) * scaleX;
+      const clickY = (e.clientY - rect.top) * scaleY;
+      
+      // Verificar si el clic está dentro del área de la imagen
+      if (imgX && imgY && imgW && imgH) {
+        if (clickX >= imgX && clickX <= imgX + imgW && 
+            clickY >= imgY && clickY <= imgY + imgH) {
+          openPhotoModal();
+        }
+      }
+    });
+    
+    // Cambiar cursor cuando esté sobre la foto
+    canvas.addEventListener('mousemove', function(e) {
+      if (!img || !imageLoaded) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      const mouseX = (e.clientX - rect.left) * scaleX;
+      const mouseY = (e.clientY - rect.top) * scaleY;
+      
+      // Verificar si el mouse está sobre la foto
+      if (imgX && imgY && imgW && imgH) {
+        if (mouseX >= imgX && mouseX <= imgX + imgW && 
+            mouseY >= imgY && mouseY <= imgY + imgH) {
+          canvas.style.cursor = 'pointer';
+        } else {
+          canvas.style.cursor = 'default';
+        }
+      }
+    });
+    
+  </script>
+</body>
+</html>

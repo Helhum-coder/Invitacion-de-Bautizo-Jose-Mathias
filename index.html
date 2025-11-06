@@ -2,7 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Invitación digital para el bautizo de Jose Mathias - 6 de septiembre de 2025">
+  <meta name="theme-color" content="#87CEEB">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Bautizo JM">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192x192.png">
+  
   <title>Invitación Bautizo - Jose Mathias</title>
   <style>
     * {
@@ -318,6 +340,143 @@
       margin-bottom: 10px;
       opacity: 0.5;
     }
+    
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+    
+    .action-btn {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #2c3e50;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+    }
+    
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
+    
+    .action-btn:active {
+      transform: translateY(0);
+    }
+    
+    .action-btn.secondary {
+      background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+    }
+    
+    .action-btn.secondary:hover {
+      box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+    }
+    
+    .action-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .btn-icon {
+      font-size: 1.2rem;
+    }
+    
+    /* Install prompt */
+    .install-prompt {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      display: none;
+      align-items: center;
+      gap: 15px;
+      z-index: 1000;
+      max-width: 90%;
+      animation: slideUp 0.3s ease;
+    }
+    
+    .install-prompt.show {
+      display: flex;
+    }
+    
+    @keyframes slideUp {
+      from {
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .install-prompt-text {
+      flex: 1;
+      color: #2c3e50;
+    }
+    
+    .install-prompt-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .install-prompt-desc {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .install-prompt-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .install-prompt-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    
+    .install-prompt-btn.primary {
+      background: #FFD700;
+      color: #2c3e50;
+    }
+    
+    .install-prompt-btn.primary:hover {
+      background: #FFA500;
+    }
+    
+    .install-prompt-btn.secondary {
+      background: #f0f0f0;
+      color: #666;
+    }
+    
+    .install-prompt-btn.secondary:hover {
+      background: #e0e0e0;
+    }
+    
     @media (max-width: 768px) {
       .invitation {
         padding: 20px;
@@ -338,6 +497,30 @@
       
       .intro, .event-item, .closing-message {
         font-size: 1rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .action-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .install-prompt {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .install-prompt-buttons {
+        width: 100%;
+        flex-direction: column;
+      }
+      
+      .install-prompt-btn {
+        width: 100%;
       }
     }
   </style>
@@ -396,6 +579,34 @@
     <p class="closing-message">
       Celebra con nosotros este momento lleno de fe, amor y esperanza, en el que una nueva luz se enciende en nuestro camino.
     </p>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn" id="shareBtn" onclick="shareInvitation()">
+        <span class="btn-icon">📤</span>
+        <span>Compartir</span>
+      </button>
+      <button class="action-btn secondary" id="calendarBtn" onclick="addToCalendar()">
+        <span class="btn-icon">📅</span>
+        <span>Añadir al Calendario</span>
+      </button>
+      <button class="action-btn secondary" id="installBtn" onclick="showInstallPrompt()" style="display: none;">
+        <span class="btn-icon">📲</span>
+        <span>Instalar App</span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Install Prompt -->
+  <div class="install-prompt" id="installPrompt">
+    <div class="install-prompt-text">
+      <div class="install-prompt-title">¡Instala la invitación!</div>
+      <div class="install-prompt-desc">Accede rápidamente desde tu pantalla de inicio</div>
+    </div>
+    <div class="install-prompt-buttons">
+      <button class="install-prompt-btn primary" onclick="installPWA()">Instalar</button>
+      <button class="install-prompt-btn secondary" onclick="dismissInstallPrompt()">Ahora no</button>
+    </div>
   </div>
   
   <!-- Modal -->
@@ -413,6 +624,166 @@
     // Variables para manejo offline
     let imageLoaded = false;
     const imagePath = "iCloud Photos from Helbs LozRoj/89403b46-9e13-4d3e-b6f6-b17c5359e2e6.jpg";
+    
+    // PWA Install variables
+    let deferredPrompt;
+    let isInstalled = false;
+    
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('✅ Service Worker registered successfully:', registration.scope);
+            
+            // Check for updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              console.log('🔄 New Service Worker installing...');
+              
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('✨ New content available! Please refresh.');
+                }
+              });
+            });
+          })
+          .catch((error) => {
+            console.log('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+    
+    // PWA Install Prompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('💡 PWA install prompt available');
+      e.preventDefault();
+      deferredPrompt = e;
+      
+      // Show install button
+      const installBtn = document.getElementById('installBtn');
+      if (installBtn) {
+        installBtn.style.display = 'inline-flex';
+      }
+      
+      // Show install prompt after 5 seconds if not installed
+      setTimeout(() => {
+        if (!isInstalled && !localStorage.getItem('installPromptDismissed')) {
+          showAutoInstallPrompt();
+        }
+      }, 5000);
+    });
+    
+    window.addEventListener('appinstalled', () => {
+      console.log('✅ PWA installed successfully!');
+      isInstalled = true;
+      deferredPrompt = null;
+      
+      // Hide install button
+      const installBtn = document.getElementById('installBtn');
+      if (installBtn) {
+        installBtn.style.display = 'none';
+      }
+      
+      // Hide install prompt
+      dismissInstallPrompt();
+    });
+    
+    function showAutoInstallPrompt() {
+      const prompt = document.getElementById('installPrompt');
+      if (prompt && deferredPrompt) {
+        prompt.classList.add('show');
+      }
+    }
+    
+    function showInstallPrompt() {
+      const prompt = document.getElementById('installPrompt');
+      if (prompt && deferredPrompt) {
+        prompt.classList.add('show');
+      }
+    }
+    
+    function dismissInstallPrompt() {
+      const prompt = document.getElementById('installPrompt');
+      if (prompt) {
+        prompt.classList.remove('show');
+        localStorage.setItem('installPromptDismissed', 'true');
+      }
+    }
+    
+    async function installPWA() {
+      if (!deferredPrompt) {
+        alert('La instalación no está disponible en este momento.');
+        return;
+      }
+      
+      // Show the install prompt
+      deferredPrompt.prompt();
+      
+      // Wait for the user's response
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User response to install prompt: ${outcome}`);
+      
+      if (outcome === 'accepted') {
+        console.log('✅ User accepted the install prompt');
+      } else {
+        console.log('❌ User dismissed the install prompt');
+      }
+      
+      // Clear the deferred prompt
+      deferredPrompt = null;
+      dismissInstallPrompt();
+    }
+    
+    // Share functionality
+    async function shareInvitation() {
+      const shareData = {
+        title: 'Bautizo de Jose Mathias',
+        text: 'Estás invitado al bautizo de Jose Mathias - 6 de septiembre de 2025',
+        url: window.location.href
+      };
+      
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          console.log('✅ Shared successfully');
+        } else {
+          // Fallback: copy to clipboard
+          await navigator.clipboard.writeText(window.location.href);
+          alert('¡Enlace copiado al portapapeles! Puedes compartirlo ahora.');
+        }
+      } catch (err) {
+        console.error('Error sharing:', err);
+        // Try clipboard as fallback
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          alert('¡Enlace copiado al portapapeles! Puedes compartirlo ahora.');
+        } catch (clipErr) {
+          console.error('Clipboard error:', clipErr);
+          alert('No se pudo compartir. Copia manualmente el enlace: ' + window.location.href);
+        }
+      }
+    }
+    
+    // Add to Calendar functionality
+    function addToCalendar() {
+      const event = {
+        title: 'Bautizo de Jose Mathias',
+        description: 'Celebración del bautizo de Jose Mathias con sus padres José y Victoria, y padrinos Humberto y Ángela',
+        location: 'Parroquia de San Ginés, Plaza de las Palmas, 1',
+        start: '2025-09-06T12:00:00',
+        end: '2025-09-06T14:00:00'
+      };
+      
+      // Format for Google Calendar
+      const startDate = event.start.replace(/[-:]/g, '').replace('.000', '');
+      const endDate = event.end.replace(/[-:]/g, '').replace('.000', '');
+      
+      const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${startDate}/${endDate}`;
+      
+      // Try to open in new window/tab
+      window.open(googleCalendarUrl, '_blank');
+    }
     
     function initOfflineApp() {
       // Mostrar indicador offline brevemente

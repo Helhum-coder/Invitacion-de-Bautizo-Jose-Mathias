@@ -4,7 +4,7 @@
   "description": "Invitación digital para el bautizo de Jose Mathias",
   "main": "invitacion_nueva.html",
   "scripts": {
-    "build": "mkdir -p dist && cp *.html dist/ && cp -r 'iCloud Photos from Helbs LozRoj' dist/ 2>/dev/null || true",
+    "build": "mkdir -p dist && cp *.html dist/ && cp -r 'iCloud Photos from Helbs LozRoj' dist/ 2>/dev/null || true && cp manifest.json dist/ && cp service-worker.js dist/ && cp -r icons dist/ && cp favicon.ico dist/",
     "dev": "python3 -m http.server 8000",
     "clean": "rm -rf dist"
   },

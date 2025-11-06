@@ -28,3 +28,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Generated icon script (optional - keeping for reference)
+# generate-icons.sh

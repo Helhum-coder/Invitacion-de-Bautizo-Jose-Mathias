@@ -6,6 +6,7 @@ const RUNTIME_CACHE = 'bautizo-runtime-v1';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
+  '/offline.html',
   '/manifest.json',
   '/iCloud Photos from Helbs LozRoj/89403b46-9e13-4d3e-b6f6-b17c5359e2e6.jpg'
 ];
@@ -86,7 +87,12 @@ self.addEventListener('fetch', (event) => {
           .catch((error) => {
             console.error('[Service Worker] Fetch failed:', error);
             
-            // Return offline page or fallback
+            // Return offline page for navigation requests
+            if (event.request.mode === 'navigate') {
+              return caches.match('/offline.html');
+            }
+            
+            // Return cached index.html as fallback
             return caches.match('/index.html');
           });
       })

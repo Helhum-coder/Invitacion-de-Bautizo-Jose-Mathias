@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#87CEEB">
+  <title>Sin conexión - Bautizo Jose Mathias</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Georgia, Times, 'Times New Roman', serif;
+      background: linear-gradient(135deg, #87CEEB 0%, #B0C4DE 50%, #E6E6FA 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .offline-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .offline-icon {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .offline-title {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    .offline-message {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    .retry-btn {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #2c3e50;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+      font-family: inherit;
+    }
+    
+    .retry-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
+    
+    .retry-btn:active {
+      transform: translateY(0);
+    }
+    
+    .tips {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(135, 206, 235, 0.1);
+      border-radius: 15px;
+      text-align: left;
+    }
+    
+    .tips-title {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .tips ul {
+      color: #666;
+      margin-left: 20px;
+      line-height: 1.8;
+    }
+    
+    @media (max-width: 768px) {
+      .offline-container {
+        padding: 30px 20px;
+      }
+      
+      .offline-icon {
+        font-size: 4rem;
+      }
+      
+      .offline-title {
+        font-size: 1.5rem;
+      }
+      
+      .offline-message {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">📡</div>
+    <h1 class="offline-title">Sin conexión a Internet</h1>
+    <p class="offline-message">
+      No se puede acceder a la página en este momento. Por favor, verifica tu conexión a Internet e intenta de nuevo.
+    </p>
+    <button class="retry-btn" onclick="retryConnection()">
+      🔄 Reintentar
+    </button>
+    
+    <div class="tips">
+      <div class="tips-title">💡 Sugerencias:</div>
+      <ul>
+        <li>Verifica que estés conectado a Internet</li>
+        <li>Intenta desactivar y activar el WiFi</li>
+        <li>Si ya visitaste esta página, debería funcionar sin Internet</li>
+        <li>Verifica que no estés en modo avión</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    function retryConnection() {
+      console.log('🔄 Retrying connection...');
+      window.location.reload();
+    }
+    
+    // Auto-retry after 5 seconds if online
+    window.addEventListener('online', () => {
+      console.log('✅ Back online!');
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    });
+    
+    // Check connection status
+    if (navigator.onLine) {
+      console.log('🌐 Online - retrying...');
+      setTimeout(retryConnection, 2000);
+    } else {
+      console.log('📡 Offline - waiting for connection...');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://helhum-coder.github.io/Invitacion-de-Bautizo-Jose-Mathias/sitemap.xml

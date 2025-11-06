@@ -92,8 +92,8 @@ self.addEventListener('fetch', (event) => {
               return caches.match('/offline.html');
             }
             
-            // Return cached index.html as fallback
-            return caches.match('/index.html');
+            // For other resources, return undefined to let the browser handle it
+            return Promise.reject(error);
           });
       })
   );
